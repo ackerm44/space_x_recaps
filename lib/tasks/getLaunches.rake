@@ -3,7 +3,7 @@ task :getLaunches => :environment do
     req.options.timeout = 10
   end
   launches = JSON.parse(@resp.body)
-  @launches = launches.map{|launch| Launch.new(flight_number: launch['flight_number'],
+  @launches = launches.map{|launch| Launch.find_or_initialize_by(flight_number: launch['flight_number'],
     year: launch['year'], launch_date: launch['launch_date_utc'], rocket_name: launch['rocket']['rocket_name'],
     launchpad_name: launch['launch_site']['site_name_long'], patch_image: launch['links']['mission_patch'],
     article_link: launch['links']['article_link'], video_link: launch['links']['video_link'],

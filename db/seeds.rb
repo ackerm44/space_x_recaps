@@ -2,10 +2,10 @@ rockets = Rocket.create(
   [
     {
       name: "Falcon 1",
-      cost_per_launch: 6,700,000,
+      cost_per_launch: 6700000,
       height: 73,
       diameter: 5.5,
-      mass: 66,460,
+      mass: 66460,
       number_of_engines: 1,
       engine_type: "Merlin",
       description: "The Falcon 1 was an expendable launch system privately developed
@@ -14,7 +14,7 @@ rockets = Rocket.create(
     },
     {
       name: "Falcon 9",
-      cost_per_launch: 61,200,000,
+      cost_per_launch: 61200000,
       height: 229.6,
       diameter: 12,
       mass: 1207920,
@@ -25,7 +25,7 @@ rockets = Rocket.create(
     },
     {
       name: "Falcon Heavy",
-      cost_per_launch: 90,000,000,
+      cost_per_launch: 90000000,
       height: 229.6,
       diameter: 39.9,
       mass: 3125735,
