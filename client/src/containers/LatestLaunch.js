@@ -1,9 +1,14 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
+import '../css/latestLaunch.css'
+import Moment from 'react-moment';
+import 'moment-timezone';
 import { latestLaunchFetchData } from '../actions/latestLaunch';
+import Countdown from '../components/Countdown'
 
 
 class LatestLaunch extends Component {
+
   componentDidMount() {
     this.props.fetchData('https://api.spacexdata.com/v2/launches/upcoming');
   }
@@ -29,11 +34,16 @@ class LatestLaunch extends Component {
       let month = launchDate.getMonth();
       let year = launchDate.getFullYear();
 
+      // var zone_name =  moment.tz.guess();
+      // var timezone = moment.tz(moment.tz.guess()).zoneAbbr()
+
       return (
-        <div>
+        <div className="nextLaunch">
           <h1> Next Launch: {monthNames[month]} {day}, {year}</h1>
-          <h3>  {this.props.latestLaunch.rocket.rocket_name}</h3>
-          <h3>  {this.props.latestLaunch.launch_site.site_name_long} </h3>
+          <Moment format="hh:mm:ss a ( UTC  Z)" >{this.props.latestLaunch.launch_date_utc}</Moment>
+          <Countdown liftoff={this.props.latestLaunch.launch_date_utc} />
+          <h3> Rocket: {this.props.latestLaunch.rocket.rocket_name}</h3>
+          <h3> Launchpad: {this.props.latestLaunch.launch_site.site_name_long} </h3>
           <a href={this.props.latestLaunch.links.reddit_campaign} target="_blank">More Information</a>
         </div>
       )
