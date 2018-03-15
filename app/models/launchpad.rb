@@ -1,0 +1,2 @@
+class Launchpad < ApplicationRecord
+end
