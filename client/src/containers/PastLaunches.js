@@ -4,8 +4,8 @@ import Launch from '../components/Launch'
 import { pastLaunchesFetchData } from '../actions/pastLaunches'
 import '../css/launchIndex.css'
 // TODO:
-import { Link, Route } from 'react-router-dom'
-// import LaunchShow from './LaunchShow'
+import { Route } from 'react-router-dom'
+import LaunchShow from '../components/LaunchShow'
 
 class PastLaunches extends Component {
   componentDidMount() {
