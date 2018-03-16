@@ -1,3 +1,22 @@
 .nextLaunch {
-  text-align: center; 
+  margin-top: 50px;
+  text-align: center;
+  font-family: 'Mina', sans-serif;
+  color: white; 
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 1px;
+  grid-row-gap: 50px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 40px;
+  margin-top: 20px;
+  margin-right: 200px;
+  margin-left: 200px;
+  font-family: 'Mina', sans-serif;
 }

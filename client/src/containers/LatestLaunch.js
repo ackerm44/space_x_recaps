@@ -38,10 +38,10 @@ class LatestLaunch extends Component {
       return (
         <div className="nextLaunch">
           <h1> Next Launch: {monthNames[month]} {day}, {year}</h1>
-          <Moment format="hh:mm:ss a ( UTC  Z)" >{this.props.latestLaunch.launch_date_utc}</Moment>
+          <h1><Moment format="hh:mm:ss a ( UTC  Z)" >{this.props.latestLaunch.launch_date_utc}</Moment></h1>
           <Countdown liftoff={this.props.latestLaunch.launch_date_utc} />
-          <h3> Rocket: {this.props.latestLaunch.rocket.rocket_name}</h3>
-          <h3> Launchpad: {this.props.latestLaunch.launch_site.site_name_long} </h3>
+          <h2> Rocket: {this.props.latestLaunch.rocket.rocket_name}</h2>
+          <h2> Launchpad: {this.props.latestLaunch.launch_site.site_name_long} </h2>
           <a href={this.props.latestLaunch.links.reddit_campaign} target="_blank">More Information</a>
         </div>
       )

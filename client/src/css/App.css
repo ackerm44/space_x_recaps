@@ -1,3 +1,8 @@
+.app {
+  font-family: 'Mina', sans-serif;
+  color: white; 
+}
+
 .navbar {
   text-align: center;
   background-color: gray;
@@ -13,4 +18,8 @@
   color: white;
   font-family: 'Mina', sans-serif;
   font-size: 25px;
+}
+
+a {
+  color: white;
 }

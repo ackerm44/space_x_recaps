@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../css/latestLaunch.css'
 
 class Countdown extends Component {
   state = {
@@ -35,8 +36,23 @@ class Countdown extends Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.state.days} D - {this.state.hours} H - {this.state.minutes} M - {this.state.seconds} S</h1>
+      <div className="countdown" >
+        <div className="time_value">
+          <h1>{this.state.days}</h1>
+          <h5>Days</h5>
+        </div>
+        <div className="time_value">
+          <h1>{this.state.hours}</h1>
+          <h5>Hours</h5>
+        </div>
+        <div className="time_value">
+          <h1>{this.state.minutes}</h1>
+          <h5>Minutes</h5>
+        </div>
+        <div className="time_value">
+          <h1>{this.state.seconds}</h1>
+          <h5>Seconds</h5>
+        </div>
       </div>
     )
   }

@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="app" style={{ backgroundImage: `url(${require("./images/itl_streak.jpg")})` }  }>
           <Navbar />
           <Route exact path="/" component={LatestLaunch} />
           <Route exact path="/past" component={PastLaunches} />
