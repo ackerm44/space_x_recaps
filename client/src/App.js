@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import './App.css';
 import LatestLaunch from './containers/LatestLaunch'
 import PastLaunches from './containers/PastLaunches'
+import UpcomingLaunches from './containers/UpcomingLaunches'
 
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
         <div>
           <Route exact path="/" component={LatestLaunch} />
           <Route exact path="/past" component={PastLaunches} />
+          <Route exact path="/upcoming" component={UpcomingLaunches} />
         </div>
       </Router>
     );

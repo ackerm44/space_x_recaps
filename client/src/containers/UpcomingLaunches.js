@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { upcomingLaunchesFetchData } from '../actions/upcomingLaunches'
 import Launch from '../components/Launch'
-import { pastLaunchesFetchData } from '../actions/pastLaunches'
 import '../css/launchIndex.css'
-// TODO:
-import { Link, Route } from 'react-router-dom'
-// import LaunchShow from './LaunchShow'
 
-class PastLaunches extends Component {
+class UpcomingLaunches extends Component {
   componentDidMount() {
-    this.props.fetchData('/api/past')
+    this.props.fetchData('/api/upcoming')
   }
 
   render() {
@@ -23,9 +20,9 @@ class PastLaunches extends Component {
 
     return (
       <div>
-        <h1 className="title">Past Launches</h1>
+        <h1 className="title">Upcoming Launches</h1>
         <div className="launchesIndex">
-          {this.props.pastLaunches.map((launch, id) =>
+          {this.props.upcomingLaunches.map((launch, id) =>
             <div>
               <Launch launch={launch} />
             </div>
@@ -38,16 +35,16 @@ class PastLaunches extends Component {
 
 const mapStateToProps = state => {
   return {
-    pastLaunches: state.pastLaunches,
-    hasErrored: state.pastLaunchesHasErrored,
-    isLoading: state.pastLaunchesIsLoading
+    upcomingLaunches: state.upcomingLaunches,
+    hasErrored: state.upcomingLaunchesHasErrored,
+    isLoading: state.upcomingLaunchesIsLoading
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchData: (url) => dispatch(pastLaunchesFetchData(url))
+    fetchData: (url) => dispatch(upcomingLaunchesFetchData(url))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PastLaunches)
+export default connect(mapStateToProps, mapDispatchToProps)(UpcomingLaunches)
