@@ -12,6 +12,7 @@ class LaunchShow extends Component {
       <div>
         <h2>Yes</h2>
         <h2>{this.props.launch.id }</h2>
+        <h2>{this.props.launch.flight_number}</h2>
       </div>
     )
   }
@@ -19,8 +20,8 @@ class LaunchShow extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const launch = state.pastLaunches.find(launch => launch.id === ownProps.match.params.movieId )
-  debugger;
+  const launch = state.pastLaunches.find(l => l.id == ownProps.match.params.launchId )
+
   if (launch) {
     return { launch }
   } else {

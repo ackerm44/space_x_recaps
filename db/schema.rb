@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315185403) do
+ActiveRecord::Schema.define(version: 20180316163912) do
 
   create_table "launches", force: :cascade do |t|
     t.integer "flight_number"
-    t.integer "year"
+    t.string "year"
     t.datetime "launch_date"
     t.string "rocket_name"
     t.string "launchpad_name"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20180315185403) do
     t.integer "rocket_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "launch_success"
+    t.boolean "reuse_core"
+    t.boolean "reuse_side_core1"
+    t.boolean "reuse_side_core2"
+    t.boolean "reuse_fairings"
+    t.boolean "reuse_capsule"
   end
 
   create_table "launchpads", force: :cascade do |t|
