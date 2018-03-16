@@ -34,8 +34,6 @@ class LatestLaunch extends Component {
       let month = launchDate.getMonth();
       let year = launchDate.getFullYear();
 
-      // var zone_name =  moment.tz.guess();
-      // var timezone = moment.tz(moment.tz.guess()).zoneAbbr()
 
       return (
         <div className="nextLaunch">
