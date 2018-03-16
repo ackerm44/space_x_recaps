@@ -1,8 +1,9 @@
 import React from 'react'
+import '../css/rockets.css'
 
 const Rocket = props => {
   return (
-    <div>
+    <div className="rocketCard">
       <h2>{props.rocket.name}</h2>
       <p>{props.rocket.description}</p>
       <ul>
