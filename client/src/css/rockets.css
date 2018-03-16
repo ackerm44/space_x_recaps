@@ -1,5 +1,17 @@
 .rocketCard {
   margin: 30px;
   border: solid;
-  padding: 30px; 
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 50px;
+}
+
+.rocketInfo {
+  grid-column: 1 / 3;
+}
+
+.rocketImage img {
+  border: solid
 }
