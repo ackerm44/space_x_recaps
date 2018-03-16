@@ -7,9 +7,9 @@ task :getLaunches => :environment do
     year: launch['launch_year'], launch_date: launch['launch_date_utc'], rocket_name: launch['rocket']['rocket_name'],
     launchpad_name: launch['launch_site']['site_name_long'], patch_image: launch['links']['mission_patch'],
     article_link: launch['links']['article_link'], video_link: launch['links']['video_link'],
-    details: launch['details', launch_success: launch['launch_success'], reuse_core: launch['reuse']['core'],
+    details: launch['details'], launch_success: launch['launch_success'], reuse_core: launch['reuse']['core'],
     reuse_side_core1: launch['reuse']['side_core1'], reuse_side_core2: launch['reuse']['side_core2'],
-    reuse_fairings: launch['reuse']['fairings'], reuse_capsule: launch['reuse']['capsule'] ]
+    reuse_fairings: launch['reuse']['fairings'], reuse_capsule: launch['reuse']['capsule']
   )}
 
   @launches.each do |launch|
@@ -40,15 +40,11 @@ task :getLaunches => :environment do
       launch.launchpad = Launchpad.find(8)
     end
 
-    if launch.valid?
-      if launch.persisted?
-        launch.update
-      else
-        launch.save
-      end
-    else
-      puts launch.errors.full_messages
-    end
+    launch.save
+
   end
+
+
+
 
 end

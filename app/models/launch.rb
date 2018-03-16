@@ -12,4 +12,10 @@ class Launch < ApplicationRecord
     self.all.select {|launch| launch.launch_date > Date.today}
   end
 
+  def self.update_or_create_by(flight_number, attributes)
+    obj = self.find_or_create_by(flight_number)
+    obj.update(attributes)
+    return obj
+  end
+
 end
