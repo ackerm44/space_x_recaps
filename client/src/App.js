@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-import './App.css';
+import './css/App.css';
+import Navbar from './components/Navbar'
 import LatestLaunch from './containers/LatestLaunch'
 import PastLaunches from './containers/PastLaunches'
 import UpcomingLaunches from './containers/UpcomingLaunches'
@@ -15,6 +16,7 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <Navbar />
           <Route exact path="/" component={LatestLaunch} />
           <Route exact path="/past" component={PastLaunches} />
           <Route path={'/past/:launchId'} component={LaunchShow} />

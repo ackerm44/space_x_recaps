@@ -1,0 +1,16 @@
+.navbar {
+  text-align: center;
+  background-color: gray;
+  padding: 20px;
+  color: white;
+  font-family: 'Mina', sans-serif;
+}
+
+.navbar a {
+  text-decoration: none;
+  padding-right: 20px;
+  padding-left: 20px;
+  color: white;
+  font-family: 'Mina', sans-serif;
+  font-size: 25px;
+}
