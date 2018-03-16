@@ -5,6 +5,7 @@ import LatestLaunch from './containers/LatestLaunch'
 import PastLaunches from './containers/PastLaunches'
 import UpcomingLaunches from './containers/UpcomingLaunches'
 import LaunchShow from './components/LaunchShow'
+import Rockets from './containers/Rockets'
 
 
 
@@ -17,6 +18,7 @@ class App extends Component {
           <Route exact path="/past" component={PastLaunches} />
           <Route path={'/past/:launchId'} component={LaunchShow} />
           <Route exact path="/upcoming" component={UpcomingLaunches} />
+          <Route exact path="/rockets" component={Rockets} />
         </div>
       </Router>
     );
