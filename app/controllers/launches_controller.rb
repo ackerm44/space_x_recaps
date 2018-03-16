@@ -1,5 +1,5 @@
 class LaunchesController < ApplicationController
-
+  
   def past
     past_launches = Launch.past_launches
     render json: past_launches, status: 200
