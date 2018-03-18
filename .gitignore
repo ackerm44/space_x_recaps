@@ -17,6 +17,8 @@
 !/log/.keep
 !/tmp/.keep
 
+/.env
+
 .byebug_history
 
 # dependencies
@@ -38,3 +40,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.env

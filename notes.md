@@ -1,5 +1,4 @@
 - Add key to each component
-- Footer
 - News?
 - Stats
 - Ability to post data to launch?
