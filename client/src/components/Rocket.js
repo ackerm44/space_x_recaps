@@ -1,6 +1,6 @@
 import React from 'react'
 import '../css/rockets.css'
-import falcon_1 from '../images/falcon_1.jpg'
+// import falcon_1 from '../images/falcon_1.jpg'
 
 const Rocket = props => {
   return (
@@ -18,7 +18,7 @@ const Rocket = props => {
         </ul>
       </div>
       <div className="rocketImage">
-        <img src={falcon_1} height="300px"/>
+        <img src={props.rocket.image} height="300px"/>
       </div>
     </div>
   )

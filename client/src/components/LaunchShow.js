@@ -9,12 +9,36 @@ class LaunchShow extends Component {
   }
 
   render() {
+
+    const date_format = () => {
+      let launchDate = new Date(this.props.launch.launch_date);
+      let monthNames = [
+        "January", "February", "March", "April", "May", "June", "July", "August",
+        "September", "October", "November", "December"
+      ];
+
+      let day = launchDate.getDate();
+      let month = launchDate.getMonth();
+      let year = launchDate.getFullYear();
+
+      return <h3>Launch Date: {monthNames[month]} {day}, {year}</h3>
+    }
+
+    const launch_success = () => {
+      if (this.props.launch.launch_success === false) {
+        return <h3>Launch failed</h3>
+      } else {
+        return <h3>Launch was successful</h3>
+      }
+    }
+
+
     return (
       <div className="launchDetail">
         <h2>Flight Number: {this.props.launch.flight_number}</h2>
-        <h3>Launch Date: {this.props.launch.launch_date}</h3>
-        <h5>Launch Successful: {this.props.launch.launch_success}</h5>
+        {date_format()}
         <img src={this.props.launch.patch_image} alt="patch_image" height="200"/>
+        {launch_success()}
         <p>Details: {this.props.launch.details}</p>
         <h5>Rocket: {this.props.launch.rocket_name}</h5>
         <h5>Launchpad: {this.props.launch.launchpad_name}</h5>

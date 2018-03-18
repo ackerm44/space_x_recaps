@@ -12,3 +12,7 @@
 .launchpadInfo {
   grid-column: 1 / 3;
 }
+
+.launchpadImage img {
+  border: solid;
+}
