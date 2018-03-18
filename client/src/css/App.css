@@ -23,3 +23,9 @@
 a {
   color: white;
 }
+
+.footer {
+  padding: 10px; 
+  text-align: center;
+  background: rgb(16, 18, 36)
+}

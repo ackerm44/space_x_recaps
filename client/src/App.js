@@ -8,6 +8,7 @@ import UpcomingLaunches from './containers/UpcomingLaunches'
 import LaunchShow from './components/LaunchShow'
 import Rockets from './containers/Rockets'
 import Launchpads from './containers/Launchpads'
+import Footer from './components/Footer'
 
 
 
@@ -23,6 +24,7 @@ class App extends Component {
           <Route exact path="/upcoming" component={UpcomingLaunches} />
           <Route exact path="/rockets" component={Rockets} />
           <Route exact path="/launchpads" component={Launchpads} />
+          <Footer />
         </div>
       </Router>
     );
