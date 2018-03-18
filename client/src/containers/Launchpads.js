@@ -10,7 +10,7 @@ class Launchpads extends Component {
 
   render() {
     return (
-      <div>
+      <div classNme = "launchpads">
         <h1 className="title">Launchpads</h1>
         <div>
           {this.props.launchpads.map(launchpad => <Launchpad launchpad={launchpad} />)}

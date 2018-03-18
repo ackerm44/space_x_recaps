@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180316163912) do
+ActiveRecord::Schema.define(version: 20180318212247) do
 
   create_table "launches", force: :cascade do |t|
     t.integer "flight_number"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20180316163912) do
     t.float "latitude"
     t.float "longitude"
     t.text "details"
+    t.string "image"
   end
 
   create_table "rockets", force: :cascade do |t|
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180316163912) do
     t.integer "number_of_engines"
     t.string "engine_type"
     t.text "description"
+    t.string "image"
   end
 
 end

@@ -1,8 +1,9 @@
 .nextLaunch {
   margin-top: 50px;
+  margin-bottom: 50px; 
   text-align: center;
   font-family: 'Mina', sans-serif;
-  color: white; 
+  color: white;
 }
 
 .countdown {

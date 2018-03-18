@@ -1,2 +1,6 @@
 - Add launch success/failure to launches data
 - Add key to each component
+- Footer
+- News?
+- Stats
+- Ability to post data to launch?

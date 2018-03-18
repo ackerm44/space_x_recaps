@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { upcomingLaunchesFetchData } from '../actions/upcomingLaunches'
-import Launch from '../components/Launch'
+import UpcomingLaunchCard from '../components/UpcomingLaunchCard'
 import '../css/launchIndex.css'
+
 
 class UpcomingLaunches extends Component {
   componentDidMount() {
@@ -24,7 +25,7 @@ class UpcomingLaunches extends Component {
         <div className="launchesIndex">
           {this.props.upcomingLaunches.map((launch, id) =>
             <div>
-              <Launch launch={launch} />
+              <UpcomingLaunchCard launch={launch} />
             </div>
           )}
         </div>
@@ -32,6 +33,8 @@ class UpcomingLaunches extends Component {
     )
   }
 }
+
+
 
 const mapStateToProps = state => {
   return {
