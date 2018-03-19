@@ -16,7 +16,6 @@ const UpcomingLaunchCard = props => {
     <div>
       <h2>Flight Number: {props.launch.id}</h2>
       <h3>Launch Date: {monthNames[month]} {day}, {year}</h3>
-      <img src={Falcon_rocket_family} height="100" />
       <p>{props.launch.rocket_name}</p>
       <p>{props.launch.launchpad_name}</p>
     </div>

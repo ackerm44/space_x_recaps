@@ -7,14 +7,17 @@ class News extends Component {
 
   componentDidMount() {
     const newsKey = process.env.REACT_APP_NEWS_API_KEY
-    const newsUrl = "https://newsapi.org/v2/everything?q=spacex%20NOT%20(trump%20OR%20apple%20OR%20tesla)&language=en&sortBy=publishedAt&apiKey=" + newsKey
+    const newsUrl = "https://newsapi.org/v2/everything?q=spacex%20AND%20mars%20NOT%20(trump%20OR%20apple%20OR%20tesla)&language=en&sortBy=publishedAt&apiKey=" + newsKey
     this.props.fetchData(newsUrl)
   }
 
   render() {
     return (
-      <div>
-        {this.props.news.map(article => <Article article={article}/>)}
+      <div classNme = "news">
+        <h1 className="title">News</h1>
+        <div>
+          {this.props.news.map(article => <Article article={article}/>)}
+        </div>
       </div>
     )
   }

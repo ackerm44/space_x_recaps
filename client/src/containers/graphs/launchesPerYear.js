@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import '../node_modules/react-vis/dist/style.css';
-import {XYPlot, VerticalBarSeries} from 'react-vis';
+// import '../node_modules/react-vis/dist/style.css';
+import {XYPlot, XAxis, YAxis, VerticalBarSeries} from 'react-vis';
 
 class LaunchesPerYear extends Component {
   render() {
@@ -23,9 +23,13 @@ class LaunchesPerYear extends Component {
     return(
       <div>
         <XYPlot height={300} width= {300}>
+          <XAxis />
+          <YAxis />
           <VerticalBarSeries data={data} />
         </XYPlot>
       </div>
     )
   }
 }
+
+export default LaunchesPerYear
