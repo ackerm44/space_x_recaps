@@ -5,10 +5,11 @@ Rails.application.routes.draw do
     get :launchpads, to: 'launchpads#index'
     get :past, to: 'launches#past'
     get :upcoming, to: 'launches#upcoming'
+    post :login, to: 'sessions#create'
   end
 
   get '/users/current-user', to: "current_user#show"
   resources :users
-  post '/login', to: "sessions#create"
+
 
 end

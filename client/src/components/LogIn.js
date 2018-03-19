@@ -1,10 +1,10 @@
-import React, {PropTypes} from 'react';
+import React, { Component } from 'react';
 import TextInput from './TextInput';
-import {bindActionCreators} from 'redux';  
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-// import * as sessionActions from '../actions/sessionActions';
+import * as sessionActions from '../actions/sessionActions';
 
-class LogInPage extends React.Component {
+class LogInPage extends Component {
   constructor(props) {
     super(props);
     this.state = {credentials: {username: '', password: ''}}
@@ -26,32 +26,34 @@ class LogInPage extends React.Component {
 
   render() {
     return (
-      < div>
-        < form>
-          < TextInput
+      <div>
+        <form>
+          <TextInput
             name="username"
             label="username"
             value={this.state.credentials.email}
-            onChange={this.onChange}/>
-
-          < TextInput
+            onChange={this.onChange}
+          />
+          <TextInput
             name="password"
             label="password"
             type="password"
             value={this.state.credentials.password}
-            onChange={this.onChange}/>
-
-          < input
+            onChange={this.onChange}
+          />
+          <input
             type="submit"
             className="btn btn-primary"
-            onClick={this.onSave}/>
-
-
-  );
+            onClick={this.onSave}
+          />
+          {" "}
+        </form>
+    </div>
+    );
   }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(sessionActions, dispatch)
   };

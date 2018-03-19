@@ -11,6 +11,7 @@ import Launchpads from './containers/Launchpads'
 import Footer from './components/Footer'
 import News from './containers/News'
 import Stats from './containers/Stats'
+import LogInPage from  './components/LogIn'
 
 
 
@@ -20,6 +21,7 @@ class App extends Component {
       <Router>
         <div className="app" style={{ backgroundImage: `url(${require("./images/itl_streak.jpg")})` }  }>
           <Navbar />
+          <Route exact path="/login" component={LogInPage} />
           <Route exact path="/" component={LatestLaunch} />
           <Route exact path="/past" component={PastLaunches} />
           <Route path={'/past/:launchId'} component={LaunchShow} />
