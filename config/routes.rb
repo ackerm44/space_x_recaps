@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     get :upcoming, to: 'launches#upcoming'
   end
 
-  post '/login', to: "sessions#create"  
+  get '/users/current-user', to: "current_user#show"
+  resources :users
+  post '/login', to: "sessions#create"
 
 end
