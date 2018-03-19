@@ -1,4 +1,5 @@
 - Add key to each component
-- News?
 - Stats
 - Ability to post data to launch?
+- Remove placeholder image on upcoming
+- Whenever gem
