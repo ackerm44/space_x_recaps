@@ -45,6 +45,10 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubi (1.7.1)
     faraday (0.14.0)
       multipart-post (>= 1.2, < 3)
@@ -136,6 +140,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
+  dotenv-rails
   faraday
   foreman (~> 0.82.0)
   jwt
