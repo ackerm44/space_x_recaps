@@ -15,3 +15,8 @@ export function logInUser(credentials) {
 export function loginSuccess() {
   return {type: 'LOG_IN_SUCCESS'}
 }
+
+export function logOutUser() {
+  sessionStorage.removeItem('jwt');
+  return {type: 'LOG_OUT'}
+}
