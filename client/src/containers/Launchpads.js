@@ -5,7 +5,21 @@ import { launchpadsFetchData } from '../actions/launchpads'
 
 class Launchpads extends Component {
   componentDidMount() {
-    const headers = {'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`}
+    // var myHeaders = new Headers();
+    // myHeaders.append('Content-Type', 'image/jpeg');
+    //
+    // var myInit = { method: 'GET',
+    //                headers: myHeaders,
+    //                mode: 'cors',
+    //                cache: 'default' };
+    //
+    // var myRequest = new Request('flowers.jpg',myInit);
+    //
+    //
+
+
+    const headers = new Headers()
+    headers.append("HTTP_AUTHORIZATION", `Bearer ${sessionStorage.jwt}`)
     const request = new Request('/api/launchpads', {
       method: 'GET',
       headers: headers

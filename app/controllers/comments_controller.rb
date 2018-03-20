@@ -14,21 +14,11 @@ class CommentsController < ApplicationController
   end
 
   private
-  # def auth
-  #   Auth.decode(token)
-  # end
-  #
-  # def current_user_id
-  #   user = User.find(auth["user"])
-  #   if user
-  #     @current_user.id ||= user.id
-  #   end
-  # end
 
   def comment_params
-    binding.pry
-    user = User.find(current_user)
 
+    user = User.find(current_user)
+    binding.pry
     user = user.id
     params.require(:comment).permit(:comment_body, :launch_id).merge(user)
   end

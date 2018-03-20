@@ -1,10 +1,11 @@
 class CommentsApi {
   static postComment(postedComment) {
+    const headers = new Headers()
+    headers.append("HTTP_AUTHORIZATION", `Bearer ${sessionStorage.jwt}`)
+    headers.append('Content-Type', 'application/json')
     const request = new Request('/api/comments', {
       method: 'POST',
-      headers: new Headers({
-        'Content-Type': 'application/json'
-      }),
+      headers: headers,
       body: JSON.stringify({comment: postedComment})
     })
 
