@@ -4,6 +4,7 @@ import { pastLaunchesFetchData } from '../actions/pastLaunches'
 import { commentsFetchData } from '../actions/commentsActions'
 import '../css/launchShow.css'
 import Comment from '../containers/Comment'
+import CommentNew from './CommentNew'
 
 class LaunchShow extends Component {
   componentDidMount() {
@@ -61,6 +62,7 @@ class LaunchShow extends Component {
         </div>
         <div className="Comments">
           <h2>Comments on this Flight</h2>
+          <CommentNew />
         </div>
       </div>
     )
@@ -69,8 +71,8 @@ class LaunchShow extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  let launch = state.pastLaunches.find(l => l.launch.id === parseInt(ownProps.match.params.launchId) )
-  let comments = state.comments.find(c => c.comment.launch_id === parseInt(ownProps.match.params.launchId))
+  let launch = state.pastLaunches.find(l => l.launch.id === parseInt(ownProps.match.params.launchId, 10) )
+  let comments = state.comments.find(c => c.comment.launch_id === parseInt(ownProps.match.params.launchId, 10))
   // debugger;
   if (launch) {
     launch = launch.launch

@@ -1,3 +1,5 @@
+import commentsApi from '../api/commentsApi'
+
 export function commentsFetchData(url) {
   return (dispatch) => {
     dispatch(commentsIsLoading(true));
@@ -9,7 +11,6 @@ export function commentsFetchData(url) {
         return response
       })
       .then(response => response.json())
-      // .then(comments => console.log(comments))
       .then(comments => dispatch(commentsFetchDataSuccess(comments)))
       // .catch(() => dispatch(commentsHasErrored(true)))
   }
@@ -33,5 +34,20 @@ export function commentsFetchDataSuccess(comments) {
   return {
     type: 'COMMENTS_FETCH_DATA_SUCCESS',
     comments
+  }
+}
+
+export function postCommentData(comment) {
+  return function(dispatch) {
+    return commentsApi.postComment(comment).then(response => {
+      dispatch(postCommentSuccess(comment))
+    }).catch(error => {throw(error)})
+  }
+}
+
+export function postCommentSuccess(comment) {
+  return {
+    type: 'POST_COMMENT_SUCCESS',
+    comment
   }
 }

@@ -25,7 +25,7 @@ const Launch = props => {
 
   return (
     <div>
-      <h2><Link to={`/past/${props.launch.launch.id}`}>Flight Number: {props.launch.id}</Link></h2>
+      <h2><Link to={`/past/${props.launch.launch.id}`}>Flight Number: {props.launch.launch.id}</Link></h2>
       <h3>Launch Date: {monthNames[month]} {day}, {year}</h3>
       {patch_image_display()}
       <p>{props.launch.launch.rocket_name}</p>

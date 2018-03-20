@@ -2,6 +2,5 @@
 - Stats
 - Whenever gem
 - Add 'actions' to action file names
--- Create Comments Model
 -- Visitor can view any page except comments#new / comments#create
 -- Create Comment component, render in launchshowcard
