@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TextInput from './TextInput';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom'
 import * as sessionActions from '../actions/sessionActions';
 
 class LogInPage extends Component {
@@ -27,6 +28,7 @@ class LogInPage extends Component {
   render() {
     return (
       <div>
+        <h1 className="title">Log In</h1>
         <form>
           <TextInput
             name="username"
@@ -43,11 +45,11 @@ class LogInPage extends Component {
           />
           <input
             type="submit"
-            className="btn btn-primary"
             onClick={this.onSave}
           />
-          {" "}
+          <p><Link to={'/signup'}>Or Sign Up</Link></p>
         </form>
+
     </div>
     );
   }

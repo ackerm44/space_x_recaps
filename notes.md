@@ -1,6 +1,9 @@
 - Add key to each component
 - Stats
-- Ability to post data to launch?
-- Remove placeholder image on upcoming
 - Whenever gem
-- Add 'actions' to action files
+- Add 'actions' to action file names
+-- Format signup and login pages
+-- Redirect after login and signup
+-- Create Comments Model
+-- Visitor can view any page except comments#new / comments#create
+-- Create Comment component, render in launchshowcard

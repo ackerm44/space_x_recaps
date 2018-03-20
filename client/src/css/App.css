@@ -25,7 +25,13 @@ a {
 }
 
 .footer {
-  padding: 10px; 
+  padding: 10px;
   text-align: center;
   background: rgb(16, 18, 36)
+}
+
+form {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px; 
 }
