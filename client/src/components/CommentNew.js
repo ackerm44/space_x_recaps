@@ -7,7 +7,13 @@ import TextInput from './TextInput'
 class CommentNew extends Component {
   constructor(props) {
     super(props);
-    this.state = {comments: []}
+    // this.state = {
+    //   comment: {
+    //     launch_id: this.props.launch,
+    //     comment_body: []
+    //
+    //   }
+    // }
     this.onChange = this.onChange.bind(this);
     this.onSave = this.onSave.bind(this);
   }
@@ -15,13 +21,17 @@ class CommentNew extends Component {
 
   onChange(event) {
     this.setState({
-      comments: event.target.value
+      comment: {
+        launch_id: this.props.launch,
+        comment_body: event.target.value,
+      }
     })
   }
 
   onSave(event) {
     event.preventDefault();
-    this.props.postComment(this.state.comments)
+
+    this.props.postComment(this.state.comment)
   }
 
   render() {
@@ -43,7 +53,7 @@ class CommentNew extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    postComment: (url) => dispatch(postCommentData(url))
+    postComment: (comment) => dispatch(postCommentData(comment))
   }
 }
 

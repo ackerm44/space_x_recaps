@@ -62,7 +62,7 @@ class LaunchShow extends Component {
         </div>
         <div className="Comments">
           <h2>Comments on this Flight</h2>
-          <CommentNew />
+          <CommentNew launch={this.props.launch.flight_number}/>
         </div>
       </div>
     )
