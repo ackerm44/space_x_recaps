@@ -1,5 +1,4 @@
 import React from 'react';
-import Falcon_rocket_family from'../images/Falcon_rocket_family.svg.png'
 
 const UpcomingLaunchCard = props => {
   let launchDate = new Date(props.launch.launch.launch_date);

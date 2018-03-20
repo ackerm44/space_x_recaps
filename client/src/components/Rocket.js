@@ -18,7 +18,7 @@ const Rocket = props => {
         </ul>
       </div>
       <div className="rocketImage">
-        <img src={props.rocket.rocket.image} height="300px"/>
+        <img src={props.rocket.rocket.image} alt={props.rocket.rocket.name} height="300px"/>
       </div>
     </div>
   )

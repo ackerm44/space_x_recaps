@@ -21,7 +21,7 @@ const Article = props => {
 
   const photo_display = () => {
     if (props.article.urlToImage !== null) {
-      return <img src={props.article.urlToImage} height="100" />
+      return <img src={props.article.urlToImage} alt="article" height="100" />
     }
   }
 

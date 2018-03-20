@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types';
 import Falcon_rocket_family from'../images/Falcon_rocket_family.svg.png'
 
 const Launch = props => {
@@ -17,9 +16,9 @@ const Launch = props => {
 
   const patch_image_display = () => {
     if (props.launch.launch.patch_image === null) {
-      return <img src={Falcon_rocket_family} height="100" />
+      return <img src={Falcon_rocket_family} alt="Falcon_rocket_family" height="100" />
     } else {
-      return <img src={props.launch.launch.patch_image} height="100" />
+      return <img src={props.launch.launch.patch_image} alt={props.launch.launch.flight_number} height="100" />
     }
   }
 
