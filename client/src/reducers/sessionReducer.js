@@ -5,7 +5,7 @@ export default function session(state = initialState.session, action) {
     case 'LOG_IN_SUCCESS':
       return !!sessionStorage.jwt
     case 'LOG_OUT':
-      debugger; 
+      // debugger;
       return !!sessionStorage.jwt
     default:
       return state;

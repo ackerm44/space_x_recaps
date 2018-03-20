@@ -1,5 +1,6 @@
 // import * as types from './actionTypes';
 import sessionApi from '../api/sessionApi';
+import createUserApi from '../api/createUserApi'
 
 export function logInUser(credentials) {
   return function(dispatch) {
