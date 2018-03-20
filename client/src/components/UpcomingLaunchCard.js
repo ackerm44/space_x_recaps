@@ -2,7 +2,7 @@ import React from 'react';
 import Falcon_rocket_family from'../images/Falcon_rocket_family.svg.png'
 
 const UpcomingLaunchCard = props => {
-  let launchDate = new Date(props.launch.launch_date);
+  let launchDate = new Date(props.launch.launch.launch_date);
   let monthNames = [
     "January", "February", "March", "April", "May", "June", "July", "August",
     "September", "October", "November", "December"
@@ -14,10 +14,10 @@ const UpcomingLaunchCard = props => {
 
   return (
     <div>
-      <h2>Flight Number: {props.launch.id}</h2>
+      <h2>Flight Number: {props.launch.launch.id}</h2>
       <h3>Launch Date: {monthNames[month]} {day}, {year}</h3>
-      <p>{props.launch.rocket_name}</p>
-      <p>{props.launch.launchpad_name}</p>
+      <p>{props.launch.launch.rocket_name}</p>
+      <p>{props.launch.launch.launchpad_name}</p>
     </div>
   )
 }
