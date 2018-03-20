@@ -6,6 +6,7 @@ import '../css/launchShow.css'
 class LaunchShow extends Component {
   componentDidMount() {
     this.props.fetchData('/api/past')
+    this.props.fetchData('/api/comments')
 
   }
 
@@ -60,7 +61,7 @@ class LaunchShow extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   let launch = state.pastLaunches.find(l => l.launch.id === parseInt(ownProps.match.params.launchId) )
-
+  let comments = state.comments.find(comments => comments.launch_id === parseInt(ownProps.match.params.launchId))
   if (launch) {
     launch = launch.launch
     return { launch }
@@ -72,6 +73,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchData: (url) => dispatch(pastLaunchesFetchData(url))
+    comments: (url) => dispatch(commentsFetchData(url))
   }
 }
 
