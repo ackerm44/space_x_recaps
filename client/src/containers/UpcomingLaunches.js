@@ -6,10 +6,6 @@ import '../css/launchIndex.css'
 
 
 class UpcomingLaunches extends Component {
-  // static requestHeaders() {
-  //   return {'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`}
-  // }
-
   componentDidMount() {
     const headers = {'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`}
     const request = new Request('/api/upcoming', {
