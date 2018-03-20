@@ -4,11 +4,11 @@ import React, { Component } from 'react'
 const Comment = props => {
   return (
     <div>
-      
+
     </div>
   )
 }
 
 // const mapStateToProps
 //
-// export default (Comment)
+export default Comment

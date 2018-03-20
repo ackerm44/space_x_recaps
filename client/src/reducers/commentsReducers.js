@@ -1,4 +1,4 @@
-xport function commentsHasErrored(state = false, action) {
+export function commentsHasErrored(state = false, action) {
   switch (action.type) {
     case 'COMMENTS_HAS_ERRORED':
       return action.hasErrored

@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { pastLaunchesFetchData } from '../actions/pastLaunches'
+import { commentsFetchData } from '../actions/commentsActions'
 import '../css/launchShow.css'
+import Comment from '../containers/Comment'
 
 class LaunchShow extends Component {
   componentDidMount() {
-    this.props.fetchData('/api/past')
-    this.props.fetchData('/api/comments')
+    this.props.fetchPastLaunches('/api/past')
+    this.props.fetchComments('/api/comments')
 
   }
 
@@ -35,7 +37,11 @@ class LaunchShow extends Component {
       }
     }
 
+    const comments_display = () => {
+      this.props.comments !== {} ? this.props.comments.map(comment => <Comment comment={comment} />) :  <p></p>
+    }
 
+    debugger;
     return (
       <div className="launchShow">
         <div className="launchDetail">
@@ -51,7 +57,7 @@ class LaunchShow extends Component {
         </div>
         <div className="Comments">
           <h2>Comments on this Flight</h2>
-          {this.props.comments.map(comment => <Comment comment={comment} />)}
+          {comments_display()}
         </div>
       </div>
     )
@@ -64,16 +70,16 @@ const mapStateToProps = (state, ownProps) => {
   let comments = state.comments.find(comments => comments.launch_id === parseInt(ownProps.match.params.launchId))
   if (launch) {
     launch = launch.launch
-    return { launch }
+    return { launch, comments }
   } else {
-    return { launch: {} }
+    return { launch: {}, comments: {} }
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchData: (url) => dispatch(pastLaunchesFetchData(url))
-    comments: (url) => dispatch(commentsFetchData(url))
+    fetchPastLaunches: (url) => dispatch(pastLaunchesFetchData(url)),
+    fetchComments: (url) => dispatch(commentsFetchData(url))
   }
 }
 
