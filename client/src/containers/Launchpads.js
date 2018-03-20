@@ -5,12 +5,18 @@ import { launchpadsFetchData } from '../actions/launchpads'
 
 class Launchpads extends Component {
   componentDidMount() {
-    this.props.fetchData('/api/launchpads')
+    const headers = {'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`}
+    const request = new Request('/api/launchpads', {
+      method: 'GET',
+      headers: headers
+    })
+
+    this.props.fetchData(request)
   }
 
   render() {
     return (
-      <div classNme = "launchpads">
+      <div className = "launchpads">
         <h1 className="title">Launchpads</h1>
         <div>
           {this.props.launchpads.map(launchpad => <Launchpad launchpad={launchpad} />)}

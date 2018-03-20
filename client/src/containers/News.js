@@ -13,7 +13,7 @@ class News extends Component {
 
   render() {
     return (
-      <div classNme = "news">
+      <div className = "news">
         <h1 className="title">News</h1>
         <div>
           {this.props.news.map(article => <Article article={article}/>)}
