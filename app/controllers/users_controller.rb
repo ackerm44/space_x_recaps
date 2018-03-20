@@ -14,7 +14,8 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      render json: {}, status: 200
+      jwt = Auth.issue({user: user.id})
+      render json: {jwt: jwt}
     else
       render json: ErrorSerializer.serialize(user.errors), status: 422
     end

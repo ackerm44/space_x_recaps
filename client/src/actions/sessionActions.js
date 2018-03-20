@@ -20,3 +20,14 @@ export function logOutUser() {
   sessionStorage.removeItem('jwt');
   return {type: 'LOG_OUT'}
 }
+
+export function SignUpUser(credentials) {
+  return function(dispatch) {
+    return createUserApi.signup(credentials).then(response => {
+      sessionStorage.setItem('jwt', response.jwt);
+      dispatch(loginSuccess());
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}

@@ -6,10 +6,11 @@ Rails.application.routes.draw do
     get :past, to: 'launches#past'
     get :upcoming, to: 'launches#upcoming'
     post :login, to: 'sessions#create'
+    post :signup, to: 'users#create'
   end
 
   get '/users/current-user', to: "current_user#show"
-  resources :users
+  # resources :users, only: [:index, :show]
 
 
 end
