@@ -19,7 +19,7 @@ export function commentsIsLoading(state = false, action) {
 export function comments(state = [], action) {
   switch (action.type) {
     case 'COMMENTS_FETCH_DATA_SUCCESS':
-      return action.commnents
+      return action.comments
     default:
       return state;
   }

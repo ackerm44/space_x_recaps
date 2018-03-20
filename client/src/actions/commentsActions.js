@@ -9,28 +9,29 @@ export function commentsFetchData(url) {
         return response
       })
       .then(response => response.json())
+      // .then(comments => console.log(comments))
       .then(comments => dispatch(commentsFetchDataSuccess(comments)))
-      .catch(() => dispatch(commentsHasErrored(true)))
+      // .catch(() => dispatch(commentsHasErrored(true)))
   }
 }
 
 export function commentsHasErrored(bool) {
   return {
-    type: 'PAST_LAUNCHES_HAS_ERRORED',
+    type: 'COMMENTS_HAS_ERRORED',
     hasErrored: bool
   }
 }
 
 export function commentsIsLoading(bool) {
   return {
-    type: 'PAST_LAUNCHES_IS_LOADING',
+    type: 'COMMENTS_IS_LOADING',
     isLoading: bool
   }
 }
 
 export function commentsFetchDataSuccess(comments) {
   return {
-    type: 'PAST_LAUNCHES_FETCH_DATA_SUCCESS',
+    type: 'COMMENTS_FETCH_DATA_SUCCESS',
     comments
   }
 }
