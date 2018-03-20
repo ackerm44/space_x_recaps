@@ -5,6 +5,7 @@ import { upcomingLaunches, upcomingLaunchesHasErrored, upcomingLaunchesIsLoading
 import { rockets, rocketsIsLoading, rocketsHasErrored } from './rockets'
 import { launchpads, launchpadsIsLoading, launchpadsHasErrored } from './launchpads'
 import { news, newsIsLoading, newsHasErrored} from './news'
+import { session } from './sessionReducers'
 
 
 export default combineReducers({
@@ -13,6 +14,7 @@ export default combineReducers({
   upcomingLaunches, upcomingLaunchesHasErrored, upcomingLaunchesIsLoading,
   rockets, rocketsHasErrored, rocketsIsLoading,
   launchpads, launchpadsHasErrored, launchpadsIsLoading,
-  news, newsHasErrored, newsIsLoading
+  news, newsHasErrored, newsIsLoading,
+  session
 
 })
