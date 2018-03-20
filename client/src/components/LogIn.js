@@ -23,6 +23,8 @@ class LogInPage extends Component {
   onSave(event) {
     event.preventDefault();
     this.props.actions.logInUser(this.state.credentials);
+    this.props.history.push('/')
+
   }
 
   render() {

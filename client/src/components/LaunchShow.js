@@ -6,9 +6,11 @@ import '../css/launchShow.css'
 class LaunchShow extends Component {
   componentDidMount() {
     this.props.fetchData('/api/past')
+
   }
 
   render() {
+
 
     const date_format = () => {
       let launchDate = new Date(this.props.launch.launch_date);
@@ -34,17 +36,22 @@ class LaunchShow extends Component {
 
 
     return (
-      <div className="launchDetail">
-        <h2>Flight Number: {this.props.launch.flight_number}</h2>
-        {date_format()}
-        <img src={this.props.launch.patch_image} alt="patch_image" height="200"/>
-        {launch_success()}
-        <p>Details: {this.props.launch.details}</p>
-        <h5>Rocket: {this.props.launch.rocket_name}</h5>
-        <h5>Launchpad: {this.props.launch.launchpad_name}</h5>
-        <p><a href={this.props.launch.article_link} target="_blank">More Information</a></p>
-        <a href={this.props.launch.video_link} target="_blank">Video of Launch</a>
-
+      <div className="launchShow">
+        <div className="launchDetail">
+          <h2>Flight Number: {this.props.launch.flight_number}</h2>
+          {date_format()}
+          <img src={this.props.launch.patch_image} alt="patch_image" height="200"/>
+          {launch_success()}
+          <p>Details: {this.props.launch.details}</p>
+          <h5>Rocket: {this.props.launch.rocket_name}</h5>
+          <h5>Launchpad: {this.props.launch.launchpad_name}</h5>
+          <p><a href={this.props.launch.article_link} target="_blank">More Information</a></p>
+          <a href={this.props.launch.video_link} target="_blank">Video of Launch</a>
+        </div>
+        <div className="Comments">
+          <h2>Comments on this Flight</h2>
+          {this.props.comments.map(comment => <Comment comment={comment} />)}
+        </div>
       </div>
     )
   }
@@ -52,9 +59,10 @@ class LaunchShow extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const launch = state.pastLaunches.find(l => l.id == ownProps.match.params.launchId )
+  let launch = state.pastLaunches.find(l => l.launch.id === parseInt(ownProps.match.params.launchId) )
 
   if (launch) {
+    launch = launch.launch
     return { launch }
   } else {
     return { launch: {} }

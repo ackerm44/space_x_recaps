@@ -25,6 +25,7 @@ class SignUpPage extends Component {
   onSave(event) {
     event.preventDefault();
     this.props.actions.SignUpUser(this.state.credentials);
+    this.props.history.push('/')
   }
 
   render() {
@@ -53,7 +54,7 @@ class SignUpPage extends Component {
           />
           <TextInput
             name="password_confirmation"
-            label="password_confirmation"
+            label="password confirmation"
             type="password"
             value={this.state.credentials.password_confirmation}
             onChange={this.onChange}

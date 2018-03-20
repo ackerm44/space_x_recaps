@@ -1,5 +1,14 @@
+.launchShow {
+  margin: 30px;
+  border: solid;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 50px;
+}
+
 .launchDetail {
   text-align: center;
-  margin-left: 250px;
-  margin-right: 250px;   
+  grid-column: 1 / 3;
 }
