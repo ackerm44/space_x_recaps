@@ -8,24 +8,24 @@ import CommentNew from './CommentNew'
 
 class LaunchShow extends Component {
   componentDidMount() {
-    const headers = new Headers()
-    headers.append("HTTP_AUTHORIZATION", `Bearer ${sessionStorage.jwt}`)
-    const request = new Request('/api/past', {
-      method: 'GET',
-      headers: headers
-    })
-
-    this.props.fetchPastLaunches(request)
-
-    const headers2 = new Headers()
-    headers2.append("HTTP_AUTHORIZATION", `Bearer ${sessionStorage.jwt}`)
-    const request2 = new Request('/api/comments', {
-      method: 'GET',
-      headers: headers2
-    })
-
-    this.props.fetchPastLaunches(request2)
-    // this.props.fetchPastLaunches('/api/past')
+    // const headers = new Headers()
+    // headers.append("HTTP_AUTHORIZATION", `Bearer ${sessionStorage.jwt}`)
+    // const request = new Request('/api/past', {
+    //   method: 'GET',
+    //   headers: headers
+    // })
+    //
+    // this.props.fetchPastLaunches(request)
+    //
+    // const headers2 = new Headers()
+    // headers2.append("HTTP_AUTHORIZATION", `Bearer ${sessionStorage.jwt}`)
+    // const request2 = new Request('/api/comments', {
+    //   method: 'GET',
+    //   headers: headers2
+    // })
+    //
+    // this.props.fetchPastLaunches(request2)
+    this.props.fetchPastLaunches('/api/past')
     // this.props.fetchComments('/api/comments')
 
   }
@@ -34,7 +34,7 @@ class LaunchShow extends Component {
 
 
     const date_format = () => {
-      let launchDate = new Date(this.props.launch_date);
+      let launchDate = new Date(this.props.launch.launch_date);
       let monthNames = [
         "January", "February", "March", "April", "May", "June", "July", "August",
         "September", "October", "November", "December"
@@ -55,15 +55,6 @@ class LaunchShow extends Component {
       }
     }
 
-    // const comments_display = () => {
-    //   if (this.props.comments) {
-    //     // debugger;
-    //     t
-    //     // return this.props.comments.map(comment => <Comment comment={comment} />)
-    //   }
-    // }
-
-    // debugger;
     return (
       <div className="launchShow">
         <div className="launchDetail">
@@ -77,10 +68,6 @@ class LaunchShow extends Component {
           <p><a href={this.props.launch.article_link} target="_blank">More Information</a></p>
           <a href={this.props.launch.video_link} target="_blank">Video of Launch</a>
         </div>
-        <div className="Comments">
-          <h2>Comments on this Flight</h2>
-          <CommentNew launch={this.props.launch.flight_number}/>
-        </div>
       </div>
     )
   }
@@ -88,14 +75,12 @@ class LaunchShow extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  let launch = state.pastLaunches.find(l => l.id === parseInt(ownProps.match.params.launchId, 10) )
+  let launch = state.pastLaunches.find(launch => launch.launch.id === parseInt(ownProps.match.params.launchId, 10) )
   let comments = state.comments.find(c => c.comment.launch_id === parseInt(ownProps.match.params.launchId, 10))
-  // debugger;
   if (launch) {
     launch = launch.launch
     return {
-      launch: launch,
-      comments: comments
+      launch
     }
   } else {
     return { launch: {}, comments: {} }

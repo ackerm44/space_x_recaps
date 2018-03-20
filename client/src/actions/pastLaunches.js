@@ -10,7 +10,7 @@ export function pastLaunchesFetchData(url) {
       })
       .then(response => response.json())
       .then(pastLaunches => dispatch(pastLaunchesFetchDataSuccess(pastLaunches)))
-      .catch(() => dispatch(pastLaunchesHasErrored(true)))
+      // .catch(() => dispatch(pastLaunchesHasErrored(true)))
   }
 }
 

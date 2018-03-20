@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import {connect} from 'react-redux';
 import '../css/App.css'
 import {bindActionCreators} from 'redux';
@@ -16,15 +16,15 @@ class Navbar extends Component {
 
   handleLogOut = (e) => {
     e.preventDefault();
-    // debugger;
     this.props.actions.logOutUser();
+    // this.props.router.push('/')
   }
 
   render() {
     const log_in_or_out = () => {
       // debugger;
       if (this.props.logged_in) {
-        return <a href="/logout" onClick={this.handleLogOut}>Log Out</a>
+        return <p id="log_in_or_out"><a href="/logout" onClick={this.handleLogOut}>Log Out</a></p>
       } else {
         return <NavLink to="/login" exact>Log In</NavLink>
       }
@@ -35,14 +35,15 @@ class Navbar extends Component {
     return (
       <div className="navbar">
         <h1>SpaceXrecapS</h1>
-        {log_in_or_out()}
         <hr />
+        {log_in_or_out()}
         <NavLink to="/" exact >Home</NavLink>
         <NavLink to="/upcoming" exact >Upcoming Launches</NavLink>
         <NavLink to="/past" exact >Past Launches</NavLink>
         <NavLink to="/rockets" exact >Rockets</NavLink>
         <NavLink to="/launchpads" exact >Launchpads</NavLink>
         <NavLink to="/news" exact >News</NavLink>
+
       </div>
     )
   }
