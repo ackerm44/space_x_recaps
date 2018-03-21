@@ -12,10 +12,11 @@ class CommentNew extends Component {
   }
 
 
+
   onChange(event) {
     this.setState({
       comment: {
-        launch_id: this.props.launch,
+        launch_id: this.props.launchID,
         comment_body: event.target.value,
       }
     })

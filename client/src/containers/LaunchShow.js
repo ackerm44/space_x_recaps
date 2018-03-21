@@ -13,6 +13,8 @@ class LaunchShow extends Component {
     this.props.fetchComments('/api/comments');
   }
 
+
+
   render() {
     const date_format = () => {
       let launchDate = new Date(this.props.launch.launch_date);
@@ -53,7 +55,7 @@ class LaunchShow extends Component {
           <div className="launchComments">
             <h2>Comments on this Launch</h2>
             <div>
-              <CommentNew />
+              <CommentNew launchID={this.props.launch.id}/>
             </div>
             <div>
               {this.props.comments.map(comment => <CommentShow comment={comment.comment} />)}

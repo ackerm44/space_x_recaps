@@ -40,9 +40,8 @@ export function commentsFetchDataSuccess(comments) {
 export function postCommentData(comment) {
   return (dispatch) => {
     return commentsApi.postComment(comment).then(response => {
-      // console.log(response)
-      if (response.status === 201) {
-        dispatch(postCommentSuccess(comment))
+      if (response.comment) {
+        dispatch(postCommentSuccess(comment));
       } else {
         dispatch(postCommentHasErrored(true))
       }

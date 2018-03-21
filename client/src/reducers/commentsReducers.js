@@ -25,10 +25,10 @@ export function comments(state = [], action) {
   }
 }
 
-export function postCommentSuccess(state = null, action) {
+export function postCommentSuccess(state = [], action) {
   switch (action.type) {
     case 'POST_COMMENT_SUCCESS':
-      return [].concat(state.comments, action.comment)
+      return action.comment
     default:
       return state;
   }

@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
   def comment_params
     # binding.pry
     user_id = User.find(current_user.id)
-    params.require(:comment).permit(:comment_body, :launch_id).merge(user_id: user_id)
+    params.require(:comment).permit(:comment_body, :launch_id).merge(user_id: user_id.id)
   end
 
 end
