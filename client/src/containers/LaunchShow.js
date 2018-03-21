@@ -52,7 +52,12 @@ class LaunchShow extends Component {
           </div>
           <div className="launchComments">
             <h2>Comments on this Launch</h2>
-            {this.props.comments.map(comment => <CommentShow comment={comment.comment} />)}
+            <div>
+              <CommentNew />
+            </div>
+            <div>
+              {this.props.comments.map(comment => <CommentShow comment={comment.comment} />)}
+            </div>
           </div>
         </div>
       )
@@ -63,8 +68,8 @@ class LaunchShow extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  let launch = state.pastLaunches.find(launch => launch.launch.id === parseInt(ownProps.match.params.launchId, 10) )
-  let comments = state.comments.filter(comment => comment.comment.launch_id === parseInt(ownProps.match.params.launchId), 10)
+  let launch = state.pastLaunches.find(launch => launch.launch.id === parseInt(ownProps.match.params.launchId, 10))
+  let comments = state.comments.filter(comment => comment.comment.launch_id === parseInt(ownProps.match.params.launchId, 10))
   // debugger;
   if (launch) {
     launch = launch.launch
