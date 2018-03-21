@@ -4,7 +4,7 @@ import { pastLaunchesFetchData } from '../actions/pastLaunches'
 import { commentsFetchData } from '../actions/commentsActions'
 import '../css/launchShow.css'
 import Comment from '../containers/Comment'
-import CommentNew from './CommentNew'
+import CommentNew from '../components/CommentNew'
 
 class LaunchShow extends Component {
   componentDidMount() {

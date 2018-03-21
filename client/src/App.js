@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import './css/App.css';
-import Navbar from './components/Navbar'
+import Navbar from './containers/Navbar'
 import LatestLaunch from './containers/LatestLaunch'
 import PastLaunches from './containers/PastLaunches'
 import UpcomingLaunches from './containers/UpcomingLaunches'
-import LaunchShow from './components/LaunchShow'
+import LaunchShow from './containers/LaunchShow'
 import Rockets from './containers/Rockets'
 import Launchpads from './containers/Launchpads'
 import Footer from './components/Footer'
 import News from './containers/News'
 import Stats from './containers/Stats'
-import LogInPage from  './components/LogIn'
-import SignUpPage from './components/SignUp'
+import LogInPage from  './containers/LogIn'
+import SignUpPage from './containers/SignUp'
 
 
 

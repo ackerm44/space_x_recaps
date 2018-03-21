@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import TextInput from './TextInput';
+import TextInput from '../components/TextInput';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom'
 import * as sessionActions from '../actions/sessionActions';
 
-class SignUpPage extends Component {
+class LogInPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {credentials:
-      {username: '', email: '', password: '', password_confirmation: ''}
-    }
+    this.state = {credentials: {username: '', password: ''}}
     this.onChange = this.onChange.bind(this);
     this.onSave = this.onSave.bind(this);
   }
@@ -24,24 +22,19 @@ class SignUpPage extends Component {
 
   onSave(event) {
     event.preventDefault();
-    this.props.actions.SignUpUser(this.state.credentials);
+    this.props.actions.logInUser(this.state.credentials);
     this.props.history.push('/')
+
   }
 
   render() {
     return (
       <div>
-        <h1 className="title">Sign Up</h1>
+        <h1 className="title">Log In</h1>
         <form>
           <TextInput
             name="username"
             label="username"
-            value={this.state.credentials.username}
-            onChange={this.onChange}
-          />
-          <TextInput
-            name="email"
-            label="email"
             value={this.state.credentials.email}
             onChange={this.onChange}
           />
@@ -52,19 +45,13 @@ class SignUpPage extends Component {
             value={this.state.credentials.password}
             onChange={this.onChange}
           />
-          <TextInput
-            name="password_confirmation"
-            label="password confirmation"
-            type="password"
-            value={this.state.credentials.password_confirmation}
-            onChange={this.onChange}
-          />
           <input
             type="submit"
             onClick={this.onSave}
           />
-          <p><Link to={'/login'}>Or Log In</Link></p>
+          <p><Link to={'/signup'}>Or Sign Up</Link></p>
         </form>
+
     </div>
     );
   }
@@ -75,4 +62,4 @@ const mapDispatchToProps = (dispatch) => {
     actions: bindActionCreators(sessionActions, dispatch)
   };
 }
-export default connect(null, mapDispatchToProps)(SignUpPage);
+export default connect(null, mapDispatchToProps)(LogInPage);
