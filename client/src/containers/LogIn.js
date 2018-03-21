@@ -6,6 +6,14 @@ import { Link } from 'react-router-dom'
 import * as sessionActions from '../actions/sessionActions';
 
 class LogInPage extends Component {
+  componentWillReceiveProps(nextProps) {
+    // debugger;
+    if (nextProps.session === true) {
+      // debugger;
+      this.props.history.push('/')
+    }
+  }
+
   constructor(props) {
     super(props);
     this.state = {credentials: {username: '', password: ''}}
@@ -23,15 +31,19 @@ class LogInPage extends Component {
   onSave(event) {
     event.preventDefault();
     this.props.actions.logInUser(this.state.credentials);
-    this.props.history.push('/')
-
   }
 
   render() {
+    const error = props => {
+      if (this.props.hasErrored === true) {
+        return <p>Incorrect Username or Password</p>
+      }
+    }
     return (
       <div>
         <h1 className="title">Log In</h1>
         <form>
+          {error()}
           <TextInput
             name="username"
             label="username"
@@ -51,15 +63,22 @@ class LogInPage extends Component {
           />
           <p><Link to={'/signup'}>Or Sign Up</Link></p>
         </form>
-
-    </div>
+      </div>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    session: state.session,
+    hasErrored: state.loginHasErrored
+  }
+}
+
 
 const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(sessionActions, dispatch)
   };
 }
-export default connect(null, mapDispatchToProps)(LogInPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LogInPage);
