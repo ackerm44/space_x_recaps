@@ -7,9 +7,7 @@ import * as sessionActions from '../actions/sessionActions';
 
 class LogInPage extends Component {
   componentWillReceiveProps(nextProps) {
-    // debugger;
     if (nextProps.session === true) {
-      // debugger;
       this.props.history.push('/')
     }
   }
