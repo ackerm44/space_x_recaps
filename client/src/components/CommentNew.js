@@ -7,6 +7,15 @@ import TextInput from './TextInput'
 class CommentNew extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      comment: {
+        comment_body: "",
+        launch_id: this.props.launch.id,
+        user_id: "",
+        created_at: null
+      }
+    }
+
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -16,7 +25,7 @@ class CommentNew extends Component {
   onChange(event) {
     this.setState({
       comment: {
-        launch_id: this.props.launchID,
+        ...this.state.comment,
         comment_body: event.target.value,
       }
     })
