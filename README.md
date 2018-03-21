@@ -1,24 +1,7 @@
-# README
+# SpaceXrecaps
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+SpaceXrecaps is a React front-end application with Rails API that displays SpaceX data and information.  SpaceXrecaps is not affiliated with SpaceX in anyway and is simply fan made.  
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To access:
+1.  Fork and clone file
+2.  To run locally, run rake start.  This command will run both npm start and rails s.
