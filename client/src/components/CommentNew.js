@@ -32,7 +32,7 @@ class CommentNew extends Component {
         <form>
           <TextInput
             name="comment_body"
-            label="Comment"
+            label="New Comment"
             onChange={this.onChange}
           />
           <input type="submit" onClick={this.onSubmit} />

@@ -38,10 +38,15 @@ export function commentsFetchDataSuccess(comments) {
 }
 
 export function postCommentData(comment) {
-  return function(dispatch) {
+  return (dispatch) => {
     return commentsApi.postComment(comment).then(response => {
-      dispatch(postCommentSuccess(comment))
-    }).catch(error => {throw(error)})
+      // console.log(response)
+      if (response.status === 201) {
+        dispatch(postCommentSuccess(comment))
+      } else {
+        dispatch(postCommentHasErrored(true))
+      }
+    })
   }
 }
 
@@ -49,5 +54,12 @@ export function postCommentSuccess(comment) {
   return {
     type: 'POST_COMMENT_SUCCESS',
     comment
+  }
+}
+
+export function postCommentHasErrored(bool) {
+  return {
+    type: 'POST_COMMENT_HAS_ERRORED',
+    hasErrored: bool
   }
 }

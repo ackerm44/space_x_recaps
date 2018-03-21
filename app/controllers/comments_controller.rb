@@ -6,8 +6,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    comment = Comment.new(comment_params)
     # binding.pry
+    comment = Comment.new(comment_params)
     if comment.save
       render json: comment, status: 201
     end
@@ -16,11 +16,9 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-
-    user = User.find(current_user)
-    binding.pry
-    user = user.id
-    params.require(:comment).permit(:comment_body, :launch_id).merge(user)
+    # binding.pry
+    user_id = User.find(current_user.id)
+    params.require(:comment).permit(:comment_body, :launch_id).merge(user_id: user_id)
   end
 
 end

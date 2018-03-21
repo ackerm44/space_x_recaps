@@ -24,3 +24,21 @@ export function comments(state = [], action) {
       return state;
   }
 }
+
+export function postCommentSuccess(state = null, action) {
+  switch (action.type) {
+    case 'POST_COMMENT_SUCCESS':
+      return [].concat(state.comments, action.comment)
+    default:
+      return state;
+  }
+}
+
+export function postCommentHasErrored(state = false, action) {
+  switch (action.type) {
+    case 'POST_COMMENT_HAS_ERRORED':
+      return action.hasErrored
+    default:
+      return state;
+  }
+}
