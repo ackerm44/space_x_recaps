@@ -1,5 +1,5 @@
-const date_format = (date) => {
-  let launchDate = new Date(date);
+const dateFormat = props => {
+  let launchDate = new Date(props.date);
   let monthNames = [
     "January", "February", "March", "April", "May", "June", "July", "August",
     "September", "October", "November", "December"
@@ -12,3 +12,5 @@ const date_format = (date) => {
   let formattedDate = `${monthNames[month]} ${day}, ${year}`
   return formattedDate
 }
+
+export default dateFormat

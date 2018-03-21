@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import { pastLaunchesFetchData } from '../actions/pastLaunches'
 import { commentsFetchData } from '../actions/commentsActions'
 import '../css/launchShow.css'
-import Comment from '../containers/Comment'
+// import Comment from '../containers/Comment'
 import CommentNew from '../components/CommentNew'
+import CommentShow from '../components/CommentShow'
 
 class LaunchShow extends Component {
   componentDidMount() {
@@ -51,7 +52,7 @@ class LaunchShow extends Component {
           </div>
           <div className="launchComments">
             <h2>Comments on this Launch</h2>
-            {this.props.comments.map(comment => <p>{comment.comment.comment_body}</p>)}
+            {this.props.comments.map(comment => <CommentShow comment={comment.comment} />)}
           </div>
         </div>
       )
