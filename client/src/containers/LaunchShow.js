@@ -8,31 +8,11 @@ import CommentNew from '../components/CommentNew'
 
 class LaunchShow extends Component {
   componentDidMount() {
-    // const headers = new Headers()
-    // headers.append("HTTP_AUTHORIZATION", `Bearer ${sessionStorage.jwt}`)
-    // const request = new Request('/api/past', {
-    //   method: 'GET',
-    //   headers: headers
-    // })
-    //
-    // this.props.fetchPastLaunches(request)
-    //
-    // const headers2 = new Headers()
-    // headers2.append("HTTP_AUTHORIZATION", `Bearer ${sessionStorage.jwt}`)
-    // const request2 = new Request('/api/comments', {
-    //   method: 'GET',
-    //   headers: headers2
-    // })
-    //
-    // this.props.fetchPastLaunches(request2)
-    this.props.fetchPastLaunches('/api/past')
-    // this.props.fetchComments('/api/comments')
-
+    this.props.fetchPastLaunches('/api/past');
+    this.props.fetchComments('/api/comments');
   }
 
   render() {
-
-
     const date_format = () => {
       let launchDate = new Date(this.props.launch.launch_date);
       let monthNames = [
@@ -55,36 +35,44 @@ class LaunchShow extends Component {
       }
     }
 
-    return (
-      <div className="launchShow">
-        <div className="launchDetail">
-          <h2>Flight Number: {this.props.launch.flight_number}</h2>
-          {date_format()}
-          <img src={this.props.launch.patch_image} alt="patch_image" height="200"/>
-          {launch_success()}
-          <p>Details: {this.props.launch.details}</p>
-          <h5>Rocket: {this.props.launch.rocket_name}</h5>
-          <h5>Launchpad: {this.props.launch.launchpad_name}</h5>
-          <p><a href={this.props.launch.article_link} target="_blank">More Information</a></p>
-          <a href={this.props.launch.video_link} target="_blank">Video of Launch</a>
+    if (this.props.launch !== undefined) {
+      return (
+        <div className="launchShow">
+          <div className="launchDetail">
+            <h2>Flight Number: {this.props.launch.flight_number}</h2>
+            {date_format()}
+            <img src={this.props.launch.patch_image} alt="patch_image" height="200"/>
+            {launch_success()}
+            <p>Details: {this.props.launch.details}</p>
+            <h5>Rocket: {this.props.launch.rocket_name}</h5>
+            <h5>Launchpad: {this.props.launch.launchpad_name}</h5>
+            <p><a href={this.props.launch.article_link} target="_blank">More Information</a></p>
+            <a href={this.props.launch.video_link} target="_blank">Video of Launch</a>
+          </div>
+          <div className="launchComments">
+            <h2>Comments on this Launch</h2>
+            {this.props.comments.map(comment => <p>{comment.comment.comment_body}</p>)}
+          </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return <p>Loading...</p>
+    }
   }
-
 }
 
 const mapStateToProps = (state, ownProps) => {
   let launch = state.pastLaunches.find(launch => launch.launch.id === parseInt(ownProps.match.params.launchId, 10) )
-  let comments = state.comments.find(c => c.comment.launch_id === parseInt(ownProps.match.params.launchId, 10))
+  let comments = state.comments.filter(comment => comment.comment.launch_id === parseInt(ownProps.match.params.launchId), 10)
+  // debugger;
   if (launch) {
     launch = launch.launch
     return {
-      launch
+      launch: launch,
+      comments: comments
     }
-  } else {
-    return { launch: {}, comments: {} }
   }
+
 }
 
 const mapDispatchToProps = dispatch => {

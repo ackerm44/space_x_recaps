@@ -36,7 +36,7 @@ class SignUpPage extends Component {
   render() {
     const error = props => {
       if (this.props.hasErrored === true) {
-        return <p>Incorrect Username or Password</p>
+        return <p>All fields must be completed</p>
       }
     }
     return (
