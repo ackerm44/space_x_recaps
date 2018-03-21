@@ -41,7 +41,7 @@ export function postCommentData(comment) {
   return (dispatch) => {
     return commentsApi.postComment(comment).then(response => {
       if (response.comment) {
-        dispatch(postCommentSuccess(response.comment));
+        dispatch(postCommentSuccess(response));
       } else {
         dispatch(postCommentHasErrored(true))
       }

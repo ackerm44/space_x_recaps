@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { pastLaunchesFetchData } from '../actions/pastLaunches'
 import { commentsFetchData } from '../actions/commentsActions'
 import '../css/launchShow.css'
-// import Comment from '../containers/Comment'
 import CommentNew from '../components/CommentNew'
 import CommentShow from '../components/CommentShow'
 
@@ -58,7 +57,7 @@ class LaunchShow extends Component {
               <CommentNew launch={this.props.launch}/>
             </div>
             <div>
-              {this.props.comments.map(comment => <CommentShow comment={comment} />)}
+              {this.props.comments.map(comment => <CommentShow comment={comment.comment} />)}
             </div>
           </div>
         </div>
@@ -71,7 +70,7 @@ class LaunchShow extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   let launch = state.pastLaunches.find(launch => launch.launch.id === parseInt(ownProps.match.params.launchId, 10))
-  let comments = state.comments.filter(comment => comment.launch_id === parseInt(ownProps.match.params.launchId, 10))
+  let comments = state.comments.filter(comment => comment.comment.launch_id === parseInt(ownProps.match.params.launchId, 10))
   // debugger;
   if (launch) {
     launch = launch.launch
