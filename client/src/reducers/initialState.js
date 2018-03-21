@@ -1,3 +1,4 @@
-export default {  
+export default {
+  comments: [],
   session: !!sessionStorage.jwt
 }

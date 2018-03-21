@@ -17,5 +17,5 @@ export default combineReducers({
   launchpads, launchpadsHasErrored, launchpadsIsLoading,
   news, newsHasErrored, newsIsLoading,
   session, loginHasErrored,
-  comments, commentsHasErrored, commentsIsLoading, postCommentSuccess, postCommentHasErrored
+  comments, commentsHasErrored, commentsIsLoading, postCommentHasErrored
 })

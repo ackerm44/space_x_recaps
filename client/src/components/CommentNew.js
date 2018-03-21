@@ -25,6 +25,12 @@ class CommentNew extends Component {
   onSubmit(event) {
     event.preventDefault();
     this.props.postComment(this.state.comment)
+    this.setState({
+      comment: {
+        ...this.state.comment,
+        comment_body: ""
+      }
+    })
   }
 
   render() {
