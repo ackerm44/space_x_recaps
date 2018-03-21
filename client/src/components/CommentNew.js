@@ -44,9 +44,15 @@ class CommentNew extends Component {
   }
 
   render() {
+    const error = props => {
+      if (this.props.hasErrored === true) {
+        return <p>Please login to post a comment</p>
+      }
+    }
     return (
       <div>
         <form>
+          {error()}
           <TextInput
             name="comment_body"
             label="New Comment"
@@ -58,6 +64,12 @@ class CommentNew extends Component {
       </div>
     )
   }
+}
+
+const mapStateToProps = state => {
+  return {
+    hasErrored: state.postCommentHasErrored
+  }
 
 }
 
@@ -67,4 +79,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(CommentNew)
+export default connect(mapStateToProps, mapDispatchToProps)(CommentNew)

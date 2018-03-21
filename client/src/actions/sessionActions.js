@@ -1,5 +1,6 @@
 import sessionApi from '../api/sessionApi';
 import createUserApi from '../api/createUserApi'
+import { postCommentHasErrored } from './commentsActions'
 
 export function logInUser(credentials) {
   return (dispatch) => {
@@ -9,6 +10,7 @@ export function logInUser(credentials) {
         sessionStorage.setItem('jwt', response.jwt);
         dispatch(loginSuccess());
         dispatch(loginHasErrored(false))
+        dispatch(postCommentHasErrored(false))
         // dispatch(storeUsername(credentials.username))
       } else {
         dispatch(loginHasErrored(true))
@@ -43,6 +45,7 @@ export function SignUpUser(credentials) {
         sessionStorage.setItem('jwt', response.jwt);
         dispatch(loginSuccess());
         dispatch(loginHasErrored(false))
+        dispatch(postCommentHasErrored(false))
       } else {
         dispatch(loginHasErrored(true))
       }

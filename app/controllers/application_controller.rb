@@ -1,11 +1,12 @@
 class ApplicationController < ActionController::API
-  before_action :authenticate
+  # before_action :authenticate
 
   def logged_in?
     !!current_user
   end
 
   def current_user
+    # binding.pry
     if auth_present?
       user = User.find(auth["user"])
       if user
@@ -29,6 +30,10 @@ class ApplicationController < ActionController::API
   end
 
   def auth_present?
-    !!request.headers['authorization']
+    if request.headers['authorization'] != "Bearer undefined"
+      !!request.headers['authorization']
+    else
+      false
+    end
   end
 end
