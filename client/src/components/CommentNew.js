@@ -33,13 +33,14 @@ class CommentNew extends Component {
 
   onSubmit(event) {
     event.preventDefault();
-    this.props.postComment(this.state.comment)
+    this.props.postComment(this.state.comment);
     this.setState({
       comment: {
         ...this.state.comment,
         comment_body: ""
       }
-    })
+    });
+
   }
 
   render() {
@@ -49,6 +50,7 @@ class CommentNew extends Component {
           <TextInput
             name="comment_body"
             label="New Comment"
+            value={this.state.comment.comment_body}
             onChange={this.onChange}
           />
           <input type="submit" onClick={this.onSubmit} />

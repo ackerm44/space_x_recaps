@@ -1,6 +1,8 @@
 class CurrentUserController < ApplicationController
 
   def show
-    render json: current_user, root: "user", adapter: :json
+    # user = User.find(current_user)
+    # raise user.inspect
+    render json: current_user
   end
 end

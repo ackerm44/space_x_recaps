@@ -7,7 +7,6 @@ export function commentsFetchData(url) {
     fetch(url)
       .then((response) => {
         dispatch(commentsIsLoading(false));
-
         return response
       })
       .then(response => response.json())
@@ -40,7 +39,8 @@ export function commentsFetchDataSuccess(comments) {
 export function postCommentData(comment) {
   return (dispatch) => {
     return commentsApi.postComment(comment).then(response => {
-      if (response.comment) {
+      console.log(response)
+      if (response.id) {
         dispatch(postCommentSuccess(response));
       } else {
         dispatch(postCommentHasErrored(true))
