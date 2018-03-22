@@ -11,24 +11,21 @@ class SignUpPage extends Component {
       this.props.history.push('/')
     }
   }
-
-  constructor(props) {
-    super(props);
-    this.state = {credentials:
-      {username: '', email: '', password: '', password_confirmation: ''}
+  
+  state = {
+    credentials:
+      {username: '', email: '', password: '', password_confirmation: ''
     }
-    this.onChange = this.onChange.bind(this);
-    this.onSave = this.onSave.bind(this);
   }
 
-  onChange(event) {
+  onChange = (event) => {
     const field = event.target.name;
     const credentials = this.state.credentials;
     credentials[field] = event.target.value;
     return this.setState({credentials: credentials});
   }
 
-  onSave(event) {
+  onSave = (event) => {
     event.preventDefault();
     this.props.actions.SignUpUser(this.state.credentials);
   }
@@ -39,6 +36,7 @@ class SignUpPage extends Component {
         return <p>All fields must be completed</p>
       }
     }
+
     return (
       <div>
         <h1 className="title">Sign Up</h1>
@@ -76,7 +74,7 @@ class SignUpPage extends Component {
           />
           <p><Link to={'/login'}>Or Log In</Link></p>
         </form>
-    </div>
+      </div>
     );
   }
 }

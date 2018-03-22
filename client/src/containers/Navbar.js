@@ -7,11 +7,6 @@ import {bindActionCreators} from 'redux';
 import * as sessionActions from '../actions/sessionActions';
 
 class Navbar extends Component {
-  constructor(props) {
-    super();
-    this.HandleLogOut = this.handleLogOut.bind(this);
-  }
-
   handleLogOut = (e) => {
     e.preventDefault();
     this.props.actions.logOutUser();

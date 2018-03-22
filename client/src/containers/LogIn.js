@@ -12,21 +12,20 @@ class LogInPage extends Component {
     }
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {credentials: {username: '', password: ''}}
-    this.onChange = this.onChange.bind(this);
-    this.onSave = this.onSave.bind(this);
+  state = {
+    credentials:
+     {username: '', password: ''
+    }
   }
 
-  onChange(event) {
+  onChange = (event) => {
     const field = event.target.name;
     const credentials = this.state.credentials;
     credentials[field] = event.target.value;
     return this.setState({credentials: credentials});
   }
 
-  onSave(event) {
+  onSave = (event) => {
     event.preventDefault();
     this.props.actions.logInUser(this.state.credentials);
   }

@@ -15,14 +15,9 @@ class CommentNew extends Component {
         created_at: null
       }
     }
-
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
   }
 
-
-
-  onChange(event) {
+  onChange = (event) => {
     this.setState({
       comment: {
         ...this.state.comment,
@@ -31,7 +26,7 @@ class CommentNew extends Component {
     })
   }
 
-  onSubmit(event) {
+  onSubmit = (event) => {
     event.preventDefault();
     this.props.postComment(this.state.comment);
     this.setState({
