@@ -9,6 +9,14 @@ class Launchpads extends Component {
   }
 
   render() {
+    if (this.props.hasErrored) {
+      return <p>Sorry! There was an error loading the latest Launch</p>;
+    }
+
+    if (this.props.isLoading) {
+      return <p>Loading…</p>;
+    }
+
     return (
       <div className = "launchpads">
         <h1 className="title">Launchpads</h1>

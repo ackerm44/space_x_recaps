@@ -5,15 +5,12 @@ import TextInput from '../components/TextInput'
 
 
 class CommentNew extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      comment: {
-        comment_body: "",
-        launch_id: this.props.launch.id,
-        user_id: "",
-        created_at: null
-      }
+  state = {
+    comment: {
+      comment_body: "",
+      launch_id: this.props.launch.id,
+      user_id: "",
+      created_at: null
     }
   }
 
