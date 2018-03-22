@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const Header = props => {
   const log_in_or_out = () => {
     if (props.logged_in) {
-      return <p id="log_in_or_out" ><a href="/logout" onClick={this.handleLogOut}>Log Out</a></p>
+      return <p id="log_in_or_out" ><a href="/logout" onClick={props.logOut}>Log Out</a></p>
     } else {
       return <p id="log_in_or_out"><a href="/login">Log In</a></p>
     }

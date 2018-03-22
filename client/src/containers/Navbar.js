@@ -14,7 +14,7 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <Header logged_in={this.props.logged_in}/>
+        <Header logged_in={this.props.logged_in} logOut={this.handleLogOut} />
       </div>
     )
   }
