@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
+import { Redirect } from 'react-router'
 import {connect} from 'react-redux';
 import '../css/App.css'
 import {bindActionCreators} from 'redux';
 import * as sessionActions from '../actions/sessionActions';
-import TeslaSpaceman from'../images/tesla_spaceman.jpg'
-
-
 
 class Navbar extends Component {
   constructor(props) {
@@ -17,13 +15,12 @@ class Navbar extends Component {
   handleLogOut = (e) => {
     e.preventDefault();
     this.props.actions.logOutUser();
-    // this.props.router.push('/')
   }
 
   render() {
     const log_in_or_out = () => {
       if (this.props.logged_in) {
-        return <a id="log_in_or_out" href="/logout" onClick={this.handleLogOut}>Log Out</a>
+        return <p id="log_in_or_out" ><a href="/logout" onClick={this.handleLogOut}>Log Out</a></p>
       } else {
         return <p id="log_in_or_out"><a href="/login">Log In</a></p>
       }
@@ -32,10 +29,6 @@ class Navbar extends Component {
     return (
       <div>
         <div className="titlebar">
-          {/*}<div className="site-logo">
-            <img src={TeslaSpaceman} alt="Tesla Spaceman" height="100px"/>
-          </div>
-          */}
           <div className="site-title">
             <h1>SpaceXrecapS</h1>
           </div>
@@ -53,11 +46,8 @@ class Navbar extends Component {
           <NavLink to="/news" exact >News</NavLink>
         </div>
       </div>
-
     )
   }
-
-
 }
 
 const mapStateToProps = state => {

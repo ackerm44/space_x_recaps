@@ -9,12 +9,10 @@ import DateFormat from '../components/DateFormat'
 
 
 class LatestLaunch extends Component {
-
   componentDidMount() {
     this.props.fetchData('https://api.spacexdata.com/v2/launches/upcoming');
   }
-
-
+  
   render() {
     if (this.props.hasErrored) {
       return <p>Sorry! There was an error loading the latest Launch</p>;

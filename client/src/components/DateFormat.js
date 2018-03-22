@@ -1,15 +1,15 @@
 const dateFormat = props => {
-  let launchDate = new Date(props.date);
-  let monthNames = [
+  const launchDate = new Date(props.date);
+  const monthNames = [
     "January", "February", "March", "April", "May", "June", "July", "August",
     "September", "October", "November", "December"
   ];
 
-  let day = launchDate.getDate();
-  let month = launchDate.getMonth();
-  let year = launchDate.getFullYear();
+  const day = launchDate.getDate();
+  const month = launchDate.getMonth();
+  const year = launchDate.getFullYear();
 
-  let formattedDate = `${monthNames[month]} ${day}, ${year}`
+  const formattedDate = `${monthNames[month]} ${day}, ${year}`
   return formattedDate
 }
 

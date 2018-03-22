@@ -6,12 +6,10 @@ export function logInUser(credentials) {
   return (dispatch) => {
     return sessionApi.login(credentials).then(response => {
       if (response.jwt) {
-        // console.log(credentials.username)
         sessionStorage.setItem('jwt', response.jwt);
         dispatch(loginSuccess());
         dispatch(loginHasErrored(false))
         dispatch(postCommentHasErrored(false))
-        // dispatch(storeUsername(credentials.username))
       } else {
         dispatch(loginHasErrored(true))
       }
