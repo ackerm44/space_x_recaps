@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import '../css/App.css'
 import {bindActionCreators} from 'redux';
 import * as sessionActions from '../actions/sessionActions';
+import TeslaSpaceman from'../images/tesla_spaceman.jpg'
+
 
 
 class Navbar extends Component {
@@ -21,27 +23,37 @@ class Navbar extends Component {
   render() {
     const log_in_or_out = () => {
       if (this.props.logged_in) {
-        return <p id="log_in_or_out"><a href="/logout" onClick={this.handleLogOut}>Log Out</a></p>
+        return <a id="log_in_or_out" href="/logout" onClick={this.handleLogOut}>Log Out</a>
       } else {
-        return <NavLink to="/login" exact>Log In</NavLink>
+        return <p id="log_in_or_out"><a href="/login">Log In</a></p>
       }
     }
 
-
-
     return (
-      <div className="navbar">
-        <h1>SpaceXrecapS</h1>
-        <hr />
-        {log_in_or_out()}
-        <NavLink to="/" exact >Home</NavLink>
-        <NavLink to="/upcoming" exact >Upcoming Launches</NavLink>
-        <NavLink to="/past" exact >Past Launches</NavLink>
-        <NavLink to="/rockets" exact >Rockets</NavLink>
-        <NavLink to="/launchpads" exact >Launchpads</NavLink>
-        <NavLink to="/news" exact >News</NavLink>
-
+      <div>
+        <div className="titlebar">
+          {/*}<div className="site-logo">
+            <img src={TeslaSpaceman} alt="Tesla Spaceman" height="100px"/>
+          </div>
+          */}
+          <div className="site-title">
+            <h1>SpaceXrecapS</h1>
+          </div>
+          <div>
+            {log_in_or_out()}
+          </div>
+        </div>
+        <div className="navlinks">
+          <hr />
+          <NavLink to="/" exact >Home</NavLink>
+          <NavLink to="/upcoming" exact >Upcoming Launches</NavLink>
+          <NavLink to="/past" exact >Past Launches</NavLink>
+          <NavLink to="/rockets" exact >Rockets</NavLink>
+          <NavLink to="/launchpads" exact >Launchpads</NavLink>
+          <NavLink to="/news" exact >News</NavLink>
+        </div>
       </div>
+
     )
   }
 

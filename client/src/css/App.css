@@ -1,23 +1,50 @@
 .app {
-  font-family: 'Mina', sans-serif;
   color: white;
+  font-family: 'Mina', sans-serif;
 }
 
-.navbar {
+/* .site-logo {
+  grid-column: 1 / 2;
+  text-align: left;
+  padding-top: 5px;
+  padding-left: 5px;
+} */
+.site-title {
+  grid-column: 2 / 3;
+  text-align: center;
+  /* padding-right: 105px; */
+}
+
+.titlebar {
   text-align: center;
   background-color: gray;
-  padding: 20px;
-  color: white;
-  font-family: 'Mina', sans-serif;
+  padding-right: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  text-align: right;
 }
 
-.navbar a {
+.navlinks {
+  text-align: center;
+  background-color: gray;
+  padding: 5px;
+  /* color: white;
+  font-family: 'Mina', sans-serif; */
+}
+
+.navlinks a {
   text-decoration: none;
   padding-right: 20px;
   padding-left: 20px;
-  color: white;
-  font-family: 'Mina', sans-serif;
+  /* color: white; */
+  /* font-family: 'Mina', sans-serif; */
   font-size: 25px;
+}
+
+#log_in_or_out {
+  text-align: right;
+  font-size: 100%;
 }
 
 a {

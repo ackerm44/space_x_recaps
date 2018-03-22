@@ -1,4 +1,3 @@
-- Add key to each component
 - Whenever gem
 - Add 'actions' to action file names
 - Add to calendar link???
