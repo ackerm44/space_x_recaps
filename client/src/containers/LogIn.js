@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TextInput from '../components/TextInput';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import { Link } from 'react-router-dom'
+import LogInForm from '../components/LogInForm'
 import * as sessionActions from '../actions/sessionActions';
 
 class LogInPage extends Component {
@@ -39,27 +39,11 @@ class LogInPage extends Component {
     return (
       <div>
         <h1 className="title">Log In</h1>
-        <form>
-          {error()}
-          <TextInput
-            name="username"
-            label="username"
-            value={this.state.credentials.email}
-            onChange={this.onChange}
-          />
-          <TextInput
-            name="password"
-            label="password"
-            type="password"
-            value={this.state.credentials.password}
-            onChange={this.onChange}
-          />
-          <input
-            type="submit"
-            onClick={this.onSave}
-          />
-          <p><Link to={'/signup'}>Or Sign Up</Link></p>
-        </form>
+        <LogInForm
+          value={this.state.credentials}
+          onChange={this.onChange}
+          onSubmit={this.onSave}
+          hasErrored={this.props.hasErrored} />
       </div>
     );
   }
