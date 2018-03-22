@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TextInput from '../components/TextInput';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import { Link } from 'react-router-dom'
+import SignUpForm from '../components/SignUpForm'
 import * as sessionActions from '../actions/sessionActions';
 
 class SignUpPage extends Component {
@@ -11,7 +11,7 @@ class SignUpPage extends Component {
       this.props.history.push('/')
     }
   }
-  
+
   state = {
     credentials:
       {username: '', email: '', password: '', password_confirmation: ''
@@ -40,40 +40,11 @@ class SignUpPage extends Component {
     return (
       <div>
         <h1 className="title">Sign Up</h1>
-        <form>
-          {error()}
-          <TextInput
-            name="username"
-            label="username"
-            value={this.state.credentials.username}
-            onChange={this.onChange}
-          />
-          <TextInput
-            name="email"
-            label="email"
-            value={this.state.credentials.email}
-            onChange={this.onChange}
-          />
-          <TextInput
-            name="password"
-            label="password"
-            type="password"
-            value={this.state.credentials.password}
-            onChange={this.onChange}
-          />
-          <TextInput
-            name="password_confirmation"
-            label="password confirmation"
-            type="password"
-            value={this.state.credentials.password_confirmation}
-            onChange={this.onChange}
-          />
-          <input
-            type="submit"
-            onClick={this.onSave}
-          />
-          <p><Link to={'/login'}>Or Log In</Link></p>
-        </form>
+        <SignUpForm
+          value={this.state.credentials}
+          onChange={this.onChange}
+          onSubmit={this.onSave}
+          hasErrored={this.props.hasErrored} />
       </div>
     );
   }
