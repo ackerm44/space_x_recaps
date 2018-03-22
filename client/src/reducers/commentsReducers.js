@@ -1,5 +1,3 @@
-import InitialState from './initialState'
-
 export function commentsHasErrored(state = false, action) {
   switch (action.type) {
     case 'COMMENTS_HAS_ERRORED':

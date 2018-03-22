@@ -6,7 +6,7 @@ import { rockets, rocketsIsLoading, rocketsHasErrored } from './rockets'
 import { launchpads, launchpadsIsLoading, launchpadsHasErrored } from './launchpads'
 import { news, newsIsLoading, newsHasErrored} from './news'
 import { session, loginHasErrored } from './sessionReducer'
-import { comments, commentsIsLoading, commentsHasErrored, postCommentSuccess, postCommentHasErrored } from './commentsReducers'
+import { comments, commentsIsLoading, commentsHasErrored, postCommentHasErrored } from './commentsReducers'
 
 
 export default combineReducers({

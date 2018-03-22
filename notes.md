@@ -1,6 +1,5 @@
 - Add key to each component
 - Whenever gem
 - Add 'actions' to action file names
-- DateFormat - pull out of files using it and import DateFormat
 - Add to calendar link???
-- 
+- Fix login link positioning

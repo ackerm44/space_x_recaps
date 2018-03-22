@@ -23,10 +23,8 @@ class UpcomingLaunches extends Component {
       <div>
         <h1 className="title">Upcoming Launches</h1>
         <div className="launchesIndex">
-          {this.props.upcomingLaunches.map((launch, id) =>
-            <div>
-              <UpcomingLaunchCard launch={launch} />
-            </div>
+          {this.props.upcomingLaunches.map(launch =>
+            <UpcomingLaunchCard key={launch.launch.id.toString()} launch={launch} />
           )}
         </div>
       </div>

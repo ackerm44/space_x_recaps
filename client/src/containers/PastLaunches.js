@@ -23,10 +23,8 @@ class PastLaunches extends Component {
       <div>
         <h1 className="title">Past Launches</h1>
         <div className="launchesIndex">
-          {this.props.pastLaunches.map((launch, id) =>
-            <div>
-              <Launch launch={launch} />
-            </div>
+          {this.props.pastLaunches.map(launch =>
+            <Launch key={launch.launch.id.toString()} launch={launch} />
           )}
         </div>
       </div>
