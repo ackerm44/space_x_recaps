@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { postCommentData } from '../actions/commentsActions'
-import TextInput from './TextInput'
+import TextInput from '../components/TextInput'
 
 
 class CommentNew extends Component {

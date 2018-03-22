@@ -7,12 +7,7 @@ import '../css/launchIndex.css'
 
 class PastLaunches extends Component {
   componentDidMount() {
-    const headers = {'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`}
-    const request = new Request('/api/past', {
-      method: 'GET',
-      headers: headers
-    })
-    this.props.fetchData(request)
+    this.props.fetchData('/api/past')
   }
 
   render() {

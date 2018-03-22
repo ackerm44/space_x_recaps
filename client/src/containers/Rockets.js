@@ -6,13 +6,7 @@ import Rocket from '../components/Rocket'
 
 class Rockets extends Component {
   componentDidMount() {
-    const headers = {'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`}
-    const request = new Request('/api/rockets', {
-      method: 'GET',
-      headers: headers
-    })
-
-    this.props.fetchData(request)
+    this.props.fetchData('/api/rockets')
   }
 
   render() {

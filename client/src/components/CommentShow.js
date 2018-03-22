@@ -9,7 +9,6 @@ const CommentShow = props => {
       <hr />
     </div>
   )
-
 }
 
 export default CommentShow

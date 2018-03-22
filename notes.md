@@ -1,6 +1,6 @@
 - Add key to each component
-- Stats
 - Whenever gem
 - Add 'actions' to action file names
--- Visitor can view any page except comments#new / comments#create
--- Create Comment component, render in launchshowcard
+- DateFormat - pull out of files using it and import DateFormat
+- Add to calendar link???
+- 

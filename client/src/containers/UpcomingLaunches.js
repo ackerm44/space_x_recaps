@@ -7,13 +7,7 @@ import '../css/launchIndex.css'
 
 class UpcomingLaunches extends Component {
   componentDidMount() {
-    const headers = {'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`}
-    const request = new Request('/api/upcoming', {
-      method: 'GET',
-      headers: headers
-    })
-
-    this.props.fetchData(request)
+    this.props.fetchData('/api/upcoming')
   }
 
   render() {

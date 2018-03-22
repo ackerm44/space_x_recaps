@@ -5,6 +5,7 @@ import Moment from 'react-moment';
 import 'moment-timezone';
 import { latestLaunchFetchData } from '../actions/latestLaunch';
 import Countdown from '../components/Countdown'
+import DateFormat from '../components/DateFormat'
 
 
 class LatestLaunch extends Component {
@@ -24,20 +25,9 @@ class LatestLaunch extends Component {
     }
 
     if (this.props.latestLaunch.length !== 0 ){
-      let launchDate = new Date(this.props.latestLaunch.launch_date_utc);
-      let monthNames = [
-        "January", "February", "March", "April", "May", "June", "July", "August",
-        "September", "October", "November", "December"
-      ];
-
-      let day = launchDate.getDate();
-      let month = launchDate.getMonth();
-      let year = launchDate.getFullYear();
-
-
       return (
         <div className="nextLaunch">
-          <h1> Next Launch: {monthNames[month]} {day}, {year}</h1>
+          <h1><DateFormat date={this.props.latestLaunch.launch_date_utc}/></h1>
           <h1><Moment format="hh:mm:ss a ( UTC  Z)" >{this.props.latestLaunch.launch_date_utc}</Moment></h1>
           <Countdown liftoff={this.props.latestLaunch.launch_date_utc} />
           <h2> Rocket: {this.props.latestLaunch.rocket.rocket_name}</h2>

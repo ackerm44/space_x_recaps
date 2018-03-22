@@ -12,8 +12,6 @@ class Navbar extends Component {
     this.HandleLogOut = this.handleLogOut.bind(this);
   }
 
-
-
   handleLogOut = (e) => {
     e.preventDefault();
     this.props.actions.logOutUser();
@@ -22,7 +20,6 @@ class Navbar extends Component {
 
   render() {
     const log_in_or_out = () => {
-      // debugger;
       if (this.props.logged_in) {
         return <p id="log_in_or_out"><a href="/logout" onClick={this.handleLogOut}>Log Out</a></p>
       } else {
