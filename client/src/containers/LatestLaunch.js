@@ -12,7 +12,7 @@ class LatestLaunch extends Component {
   componentDidMount() {
     this.props.fetchData('https://api.spacexdata.com/v2/launches/upcoming');
   }
-  
+
   render() {
     if (this.props.hasErrored) {
       return <p>Sorry! There was an error loading the latest Launch</p>;
@@ -25,6 +25,7 @@ class LatestLaunch extends Component {
     if (this.props.latestLaunch.length !== 0 ){
       return (
         <div className="nextLaunch">
+          <h1 className="title">NEXT LAUNCH</h1>
           <h1><DateFormat date={this.props.latestLaunch.launch_date_utc}/></h1>
           <h1><Moment format="hh:mm:ss a ( UTC  Z)" >{this.props.latestLaunch.launch_date_utc}</Moment></h1>
           <Countdown liftoff={this.props.latestLaunch.launch_date_utc} />
