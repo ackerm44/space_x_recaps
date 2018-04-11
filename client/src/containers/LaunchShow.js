@@ -22,8 +22,8 @@ class LaunchShow extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  let launch = state.pastLaunches.find(launch => launch.launch.id === parseInt(ownProps.match.params.launchId, 10))
-  let comments = state.comments.filter(comment => comment.launch_id === parseInt(ownProps.match.params.launchId, 10))
+  let launch = state.pastLaunches.find(launch => launch.launch.id === +ownProps.match.params.launchId)
+  let comments = state.comments.filter(comment => comment.launch_id === +ownProps.match.params.launchId)
   if (launch) {
     launch = launch.launch
     return {
