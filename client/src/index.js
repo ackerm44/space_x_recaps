@@ -5,7 +5,6 @@ import configureStore from './store/configureStore';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-require('dotenv').config({path: '../.env'})
 
 const store = configureStore();
 
