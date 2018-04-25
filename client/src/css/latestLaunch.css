@@ -1,6 +1,6 @@
 .nextLaunch {
   margin-top: 50px;
-  margin-bottom: 50px; 
+  margin-bottom: 50px;
   text-align: center;
   font-family: 'Mina', sans-serif;
   color: white;
@@ -20,4 +20,36 @@
   margin-right: 200px;
   margin-left: 200px;
   font-family: 'Mina', sans-serif;
+}
+
+@media only screen and (max-width: 1000px) {
+  .nextLaunch {
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 80%
+  }
+
+  .countdown {
+    font-size: 30px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .countdown {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 665px) {
+  .countdown {
+    font-size: 20px;
+    display: inline;
+  }
+}
+
+@media only screen and (max-width: 412px) {
+  .countdown {
+    background: rgba(0, 0, 0, 0);
+    display: inline;
+    font-size: 15px;
+  }
 }

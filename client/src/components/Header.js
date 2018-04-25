@@ -28,7 +28,6 @@ const Header = props => {
         <NavLink to="/past" exact >Past Launches</NavLink>
         <NavLink to="/rockets" exact >Rockets</NavLink>
         <NavLink to="/launchpads" exact >Launchpads</NavLink>
-        <NavLink to="/news" exact >News</NavLink>
       </div>
     </div>
   )
