@@ -30,7 +30,6 @@ class App extends Component {
           <Route exact path="/upcoming" component={UpcomingLaunches} />
           <Route exact path="/rockets" component={Rockets} />
           <Route exact path="/launchpads" component={Launchpads} />
-          <Route exact path="/news" component={News}/>
           <Footer />
         </div>
       </Router>

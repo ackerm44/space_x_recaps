@@ -13,7 +13,7 @@ class News extends Component {
 
   render() {
     if (this.props.hasErrored) {
-      return <p>Sorry! There was an error loading the latest Launch</p>;
+      return <p>Sorry! There was an error loading the latest News</p>;
     }
 
     if (this.props.isLoading) {
