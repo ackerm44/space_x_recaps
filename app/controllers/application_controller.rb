@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::API
+  # def fallback_index_html
+  #   render :file => 'client/public/index.html'
+  # end
+
   def fallback_index_html
-    render :file => 'client/public/index.html'
+    respond_to do |format|
+      format.html { render body: Rails.root.join('client/public/index.html').read }
+    end
   end
 
   def logged_in?
