@@ -19,7 +19,7 @@ export function latestLaunchIsLoading(state = false, action) {
 export function latestLaunch(state = [], action) {
   switch (action.type) {
     case 'LATEST_LAUNCH_FETCH_DATA_SUCCESS':
-      return action.launch[0];
+      return action.launch;
     default:
       return state;
   }
