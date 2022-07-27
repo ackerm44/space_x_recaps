@@ -22,7 +22,6 @@ class Rockets extends Component {
       <div>
         <h1 className="title">Rockets</h1>
         <div>
-          {console.log(this.props.rockets)}
           {this.props.rockets.map(rocket => <Rocket key={rocket.id.toString()} rocket={rocket} />)}
         </div>
       </div>

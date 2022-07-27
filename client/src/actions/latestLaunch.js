@@ -15,7 +15,6 @@ export function latestLaunchFetchData(url) {
         
       )
       .catch((response) => {
-        console.log(response)
         dispatch(latestLaunchHasErrored(true))}
         )
   }

@@ -23,7 +23,6 @@ class UpcomingLaunches extends Component {
       <div>
         <h1 className="title">Upcoming Launches</h1>
         <div className="launchesIndex">
-          { console.log(this.props.upcomingLaunches) }
           { this.props.upcomingLaunches.map(launch =>
             <UpcomingLaunchCard key={launch.id.toString()} launch={launch} />
           )}

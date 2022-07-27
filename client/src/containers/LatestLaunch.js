@@ -23,7 +23,6 @@ class LatestLaunch extends Component {
     }
 
     if (this.props.latestLaunch.length !== 0  ){
-      {console.log(this.props)}
       return (
         <div className="nextLaunch">
           <h1 className="title">NEXT LAUNCH</h1>
