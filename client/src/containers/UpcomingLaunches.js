@@ -7,7 +7,7 @@ import '../css/launchIndex.css'
 
 class UpcomingLaunches extends Component {
   componentDidMount() {
-    this.props.fetchData('/api/upcoming')
+    this.props.fetchData('https://api.spacexdata.com/v4/launches/upcoming')
   }
 
   render() {
@@ -23,8 +23,9 @@ class UpcomingLaunches extends Component {
       <div>
         <h1 className="title">Upcoming Launches</h1>
         <div className="launchesIndex">
-          {this.props.upcomingLaunches.map(launch =>
-            <UpcomingLaunchCard key={launch.launch.id.toString()} launch={launch} />
+          { console.log(this.props.upcomingLaunches) }
+          { this.props.upcomingLaunches.map(launch =>
+            <UpcomingLaunchCard key={launch.id.toString()} launch={launch} />
           )}
         </div>
       </div>

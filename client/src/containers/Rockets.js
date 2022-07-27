@@ -6,7 +6,7 @@ import Rocket from '../components/Rocket'
 
 class Rockets extends Component {
   componentDidMount() {
-    this.props.fetchData('/api/rockets')
+    this.props.fetchData('https://api.spacexdata.com/v4/rockets')
   }
 
   render() {
@@ -22,7 +22,8 @@ class Rockets extends Component {
       <div>
         <h1 className="title">Rockets</h1>
         <div>
-          {this.props.rockets.map(rocket => <Rocket key={rocket.rocket.id.toString()} rocket={rocket} />)}
+          {console.log(this.props.rockets)}
+          {this.props.rockets.map(rocket => <Rocket key={rocket.id.toString()} rocket={rocket} />)}
         </div>
       </div>
     )

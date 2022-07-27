@@ -3,10 +3,10 @@ export function rocketsFetchData(url) {
     dispatch(rocketsIsLoading(true));
 
     fetch(url)
-      .then((reponse) => {
+      .then((response) => {
         dispatch(rocketsIsLoading(false));
 
-        return reponse;
+        return response;
       })
       .then(response => response.json())
       .then(rockets => dispatch(rocketsFetchDataSuccess(rockets)))

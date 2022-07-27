@@ -7,7 +7,7 @@ import '../css/launchIndex.css'
 
 class PastLaunches extends Component {
   componentDidMount() {
-    this.props.fetchData('/api/past')
+    this.props.fetchData('https://api.spacexdata.com/v4/launches/past')
   }
 
   render() {
@@ -23,8 +23,9 @@ class PastLaunches extends Component {
       <div>
         <h1 className="title">Past Launches</h1>
         <div className="launchesIndex">
+          {console.log(this.props.pastLaunches)}
           {this.props.pastLaunches.map(launch =>
-            <Launch key={launch.launch.id.toString()} launch={launch} />
+            <Launch key={launch.id.toString()} launch={launch} />
           )}
         </div>
       </div>

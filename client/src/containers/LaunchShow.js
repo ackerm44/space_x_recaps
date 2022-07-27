@@ -8,8 +8,8 @@ import LaunchShowDetail from '../components/LaunchShowDetail'
 
 class LaunchShow extends Component {
   componentDidMount() {
-    this.props.fetchPastLaunches('/api/past');
-    this.props.fetchComments('/api/comments');
+    this.props.fetchPastLaunches('https://api.spacexdata.com/v4/launches/past');
+    // this.props.fetchComments('/api/comments');
   }
 
   render() {
@@ -22,13 +22,14 @@ class LaunchShow extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  let launch = state.pastLaunches.find(launch => launch.launch.id === +ownProps.match.params.launchId)
-  let comments = state.comments.filter(comment => comment.launch_id === +ownProps.match.params.launchId)
+  console.log(state, ownProps)
+  let launch = state.pastLaunches.find(launch => launch.flight_number === +ownProps.match.params.launchId)
+  // let comments = state.comments.filter(comment => comment.launch_id === +ownProps.match.params.launchId)
   if (launch) {
-    launch = launch.launch
+    // launch = launch.launch
     return {
-      launch: launch,
-      comments: comments
+      launch: launch
+      // comments: comments
     }
   }
 
@@ -37,7 +38,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchPastLaunches: (url) => dispatch(pastLaunchesFetchData(url)),
-    fetchComments: (url) => dispatch(commentsFetchData(url))
+    // fetchComments: (url) => dispatch(commentsFetchData(url))
   }
 }
 

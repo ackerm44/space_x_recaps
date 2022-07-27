@@ -9,7 +9,9 @@ export function upcomingLaunchesFetchData(url) {
         return response;
       })
       .then(response => response.json())
-      .then(upcomingLaunches => dispatch(upcomingLaunchesFetchDataSuccess(upcomingLaunches)))
+      .then((upcomingLaunches) => {
+        dispatch(upcomingLaunchesFetchDataSuccess(upcomingLaunches))
+      })
       .catch(() => upcomingLaunchesHasErrored(true))
 
   }

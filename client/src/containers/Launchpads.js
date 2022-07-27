@@ -5,7 +5,7 @@ import { launchpadsFetchData } from '../actions/launchpads'
 
 class Launchpads extends Component {
   componentDidMount() {
-    this.props.fetchData('/api/launchpads')
+    this.props.fetchData('https://api.spacexdata.com/v4/launchpads')
   }
 
   render() {
@@ -21,7 +21,7 @@ class Launchpads extends Component {
       <div className = "launchpads">
         <h1 className="title">Launchpads</h1>
         <div>
-          {this.props.launchpads.map(launchpad => <Launchpad key={launchpad.launchpad.id} launchpad={launchpad} />)}
+          {this.props.launchpads.map(launchpad => <Launchpad key={launchpad.id} launchpad={launchpad} />)}
         </div>
       </div>
     )

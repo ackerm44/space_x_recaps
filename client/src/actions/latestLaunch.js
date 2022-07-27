@@ -9,9 +9,15 @@ export function latestLaunchFetchData(url) {
         return response;
       })
       .then(response => response.json())
-      .then(launches => launches[0].launch_date_utc === null ?
-        dispatch(latestLaunchFetchDataSuccess(launches[1])) : dispatch(latestLaunchFetchDataSuccess(launches[0])))
-      .catch(() => dispatch(latestLaunchHasErrored(true)))
+      .then((launch) => {
+        dispatch(latestLaunchFetchDataSuccess(launch))
+      }
+        
+      )
+      .catch((response) => {
+        console.log(response)
+        dispatch(latestLaunchHasErrored(true))}
+        )
   }
 }
 

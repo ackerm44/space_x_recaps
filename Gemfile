@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-ruby '2.3.7'
+ruby '>=2.3.7'
 gem 'rails', '~> 5.1.5'
 # Use sqlite3 as the database for Active Record
 gem 'pg'

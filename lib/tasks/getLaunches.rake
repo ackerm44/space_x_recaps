@@ -1,7 +1,7 @@
 task :getLaunches => :environment do
   Launch.delete_all
 
-  @resp = Faraday.get "https://api.spacexdata.com/v2/launches/all" do |req|
+  @resp = Faraday.get "https://api.spacexdata.com/v4/launches" do |req|
     req.options.timeout = 10
   end
   launches = JSON.parse(@resp.body)

@@ -10,7 +10,7 @@ import DateFormat from '../components/DateFormat'
 
 class LatestLaunch extends Component {
   componentDidMount() {
-    this.props.fetchData('https://api.spacexdata.com/v2/launches/upcoming');
+    this.props.fetchData('https://api.spacexdata.com/v4/launches/next');
   }
 
   render() {
@@ -23,15 +23,16 @@ class LatestLaunch extends Component {
     }
 
     if (this.props.latestLaunch.length !== 0  ){
+      {console.log(this.props)}
       return (
         <div className="nextLaunch">
           <h1 className="title">NEXT LAUNCH</h1>
-          <h1><DateFormat date={this.props.latestLaunch.launch_date_utc}/></h1>
-          <h1><Moment format="hh:mm:ss a ( UTC  Z)" >{this.props.latestLaunch.launch_date_utc}</Moment></h1>
-          <Countdown liftoff={this.props.latestLaunch.launch_date_utc} />
+          <h1><DateFormat date={this.props.latestLaunch.date_utc}/></h1>
+          <h1><Moment format="hh:mm:ss a ( UTC  Z)" >{this.props.latestLaunch.date_utc}</Moment></h1>
+          <Countdown liftoff={this.props.latestLaunch.date_utc} />
           <h2> Rocket: {this.props.latestLaunch.rocket.rocket_name}</h2>
-          <h2> Launchpad: {this.props.latestLaunch.launch_site.site_name_long} </h2>
-          <a href={this.props.latestLaunch.links.reddit_campaign} target="_blank">More Information</a>
+          {/* <h2> Launchpad: {this.props.latestLaunch.launch_site.site_name_long} </h2> */}
+          <a href={this.props.latestLaunch.links.reddit.campaign} target="_blank">More Information</a>
         </div>
       )
     } else {
