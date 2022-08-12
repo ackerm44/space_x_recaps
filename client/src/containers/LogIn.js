@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TextInput from '../components/TextInput';
+// import TextInput from '../components/TextInput';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import LogInForm from '../components/LogInForm'

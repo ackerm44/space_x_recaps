@@ -9,4 +9,36 @@
   grid-column-gap: 20px;
   grid-row-gap: 50px;
   text-align: center;
+  position: relative;
+  animation-name: slide-in;
+  animation-timing-function: ease-out;
+  animation-duration: 1s;
+}
+
+.launchCard {
+  background: var(--theme-color-dark-blue);
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 7px 3px black;
+  padding: 0 1em;
+
+}
+
+@keyframes slide-in {
+  from {transform: translate(-200px,0);}
+  to {transform: translate(0px,0);};
+}
+
+.launchCard a {
+  text-decoration: none;
+  display: block;
+}
+
+.launchCard:hover {
+  transform: translateY(-2px);
+  transform: scale(1.015);
+}
+
+.drop-shadow {
+  filter: drop-shadow(2px 4px 14px black);
 }

@@ -4,6 +4,7 @@ import '../css/App.css'
 import {bindActionCreators} from 'redux';
 import * as sessionActions from '../actions/sessionActions';
 import Header from '../components/Header'
+import { matchPath } from "react-router"
 
 class Navbar extends Component {
   handleLogOut = (e) => {

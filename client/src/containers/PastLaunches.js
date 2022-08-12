@@ -34,7 +34,7 @@ class PastLaunches extends Component {
 
 const mapStateToProps = state => {
   return {
-    pastLaunches: state.pastLaunches,
+    pastLaunches: state.pastLaunches.reverse(),
     hasErrored: state.pastLaunchesHasErrored,
     isLoading: state.pastLaunchesIsLoading
   }

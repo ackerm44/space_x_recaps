@@ -1,4 +1,4 @@
-const dateFormat = props => {
+export const DateFormat = props => {
   const launchDate = new Date(props.date);
   const monthNames = [
     "January", "February", "March", "April", "May", "June", "July", "August",
@@ -13,4 +13,14 @@ const dateFormat = props => {
   return formattedDate
 }
 
-export default dateFormat
+export const TimeFormat = props => {
+  const launchDate = new Date(props.date);
+
+  const hour = launchDate.getHours();
+  const minutes = launchDate.getMinutes();
+  // const seconds = launchDate.getSeconds();
+
+  return `${hour}:${minutes}`
+}
+
+// export default dateFormat

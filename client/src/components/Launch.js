@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import Falcon_rocket_family from'../images/Falcon_rocket_family.svg.png'
-import DateFormat from './DateFormat'
+import Falcon_rocket_family from '../images/Falcon_rocket_family.svg.png'
+import {DateFormat} from './DateFormat'
 
 const Launch = props => {
 
@@ -13,15 +13,20 @@ const Launch = props => {
     }
   }
 
+  const buildLink = () => {
+    const type = props.launch.upcoming === true ? 'upcoming' : 'past'
+    return (`/${type}/${props.launch.id}`)
+  }
+
   return (
-    <div>
-      <h2><Link to={`/past/${props.launch.flight_number}`}>Flight Number: {props.launch.flight_number}</Link></h2>
-      <h3>Launch Date: <DateFormat date={props.launch.date_utc} /></h3>
-      {patch_image_display()}
-      <p>{props.launch.rocket_name}</p>
-      <p>{props.launch.launchpad_name}</p>
-      {/* <a href={props.launch.video_link} target="_blank">Video</a> */}
-    </div>
+    <section className="launchCard">
+      <Link to={buildLink()}>
+        <h2>{props.launch.name}</h2>
+        <h3><strong>Flight Number:</strong> {props.launch.flight_number}</h3>
+        <h3>Launch Date: <DateFormat date={props.launch.date_utc} /></h3>
+        {patch_image_display()}
+      </Link>
+    </section>
   )
 }
 

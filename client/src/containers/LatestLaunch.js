@@ -1,16 +1,18 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
+
 import '../css/latestLaunch.css'
 import Moment from 'react-moment';
 import 'moment-timezone';
-import { latestLaunchFetchData } from '../actions/latestLaunch';
+import { upcomingLaunchesFetchData } from '../actions/upcomingLaunches';
 import Countdown from '../components/Countdown'
-import DateFormat from '../components/DateFormat'
+import {DateFormat} from '../components/DateFormat'
 
 
 class LatestLaunch extends Component {
   componentDidMount() {
-    this.props.fetchData('https://api.spacexdata.com/v4/launches/next');
+    this.props.fetchData('https://api.spacexdata.com/v4/launches/upcoming');
   }
 
   render() {
@@ -21,17 +23,17 @@ class LatestLaunch extends Component {
     if (this.props.isLoading) {
       return <p>Loading…</p>;
     }
-
-    if (this.props.latestLaunch.length !== 0  ){
+    if (this.props.upcomingLaunches.length > 0  ){
+      const nextLaunch = determineNextLaunch(this.props.upcomingLaunches)
       return (
         <div className="nextLaunch">
           <h1 className="title">NEXT LAUNCH</h1>
-          <h1><DateFormat date={this.props.latestLaunch.date_utc}/></h1>
-          <h1><Moment format="hh:mm:ss a ( UTC  Z)" >{this.props.latestLaunch.date_utc}</Moment></h1>
-          <Countdown liftoff={this.props.latestLaunch.date_utc} />
-          <h2> Rocket: {this.props.latestLaunch.rocket.rocket_name}</h2>
-          {/* <h2> Launchpad: {this.props.latestLaunch.launch_site.site_name_long} </h2> */}
-          <a href={this.props.latestLaunch.links.reddit.campaign} target="_blank">More Information</a>
+          <h1 style={{margin: 0}}><DateFormat date={nextLaunch.date_utc}/></h1>
+          <h1 style={{margin: 0}}><Moment format="hh:mm:ss a ( UTC  Z)" >{nextLaunch.date_utc}</Moment></h1>
+          <Countdown liftoff={nextLaunch.date_utc} />
+          {/* <h2> Rocket: {nextLaunch.rocket.rocket_name}</h2> */}
+          {/* <h2> Launchpad: {nextLaunch.launch_site.site_name_long} </h2> */}
+          <Link className="button" to={`/upcoming/${nextLaunch.id}`}>More Information</Link>
         </div>
       )
     } else {
@@ -41,18 +43,23 @@ class LatestLaunch extends Component {
   }
 }
 
+const determineNextLaunch = (launches) => {
+  let currentUnix = Math.floor(new Date().getTime() / 1000)
+  return launches.find((launch) => launch.date_unix > currentUnix)
+}
+
 
 const mapStateToProps = state => {
   return {
-    latestLaunch: state.latestLaunch,
-    hasErrored: state.latestLaunchHasErrored,
-    isLoading: state.latestLaunchIsLoading
+    upcomingLaunches: state.upcomingLaunches,
+    hasErrored: state.upcomingLaunchesHasErrored,
+    isLoading: state.upcomingLaunchesIsLoading
   };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchData: (url) => dispatch(latestLaunchFetchData(url))
+    fetchData: (url) => dispatch(upcomingLaunchesFetchData(url))
   };
 };
 

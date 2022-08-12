@@ -1,9 +1,15 @@
 .nextLaunch {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  /* margin-top: 50px;
+  margin-bottom: 50px; */
   text-align: center;
-  font-family: 'Mina', sans-serif;
-  color: white;
+  /* font-family: 'Mina', sans-serif; */
+  /* color: white; */
+}
+
+.nextLaunch .title {
+  text-align: center;
+  font-size: 3.5em;
+  margin: 0.25em 0;
 }
 
 .countdown {
@@ -12,14 +18,19 @@
   grid-column-gap: 1px;
   grid-row-gap: 50px;
   text-align: center;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--theme-color-dark-blue);
   padding-top: 20px;
   padding-bottom: 20px;
   font-size: 40px;
   margin-top: 20px;
   margin-right: 200px;
   margin-left: 200px;
-  font-family: 'Mina', sans-serif;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 10px grey;
+}
+
+.countdown h1 {
+  margin-top: 0;
 }
 
 @media only screen and (max-width: 1000px) {

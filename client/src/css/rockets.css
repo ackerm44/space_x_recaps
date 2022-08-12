@@ -6,6 +6,8 @@
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 50px;
+  background: var(--theme-color-dark-blue);
+  color: white;
 }
 
 .rocketInfo {

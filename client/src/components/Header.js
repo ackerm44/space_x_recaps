@@ -1,5 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 
 const Header = props => {
   const log_in_or_out = () => {
@@ -9,27 +11,36 @@ const Header = props => {
       return <p id="log_in_or_out"><a href="/login">Log In</a></p>
     }
   }
-
+  
+  // const activePath = () => {
+  //   const match = matchPath("/users/123", {
+  //     path: "/upcoming",
+  //     exact: true,
+  //     strict: false,
+  //   });
+  // }
 
   return (
-    <div>
+    <header>
       <div className="titlebar">
         <div className="site-title">
-          <h1>SpaceXrecapS</h1>
+          <h1 className="drop-shadow"><Link className="text-decoration-none" to='/'>SpaceXrecapS</Link></h1>
         </div>
-        <div>
+        {/* <div>
           {log_in_or_out()}
-        </div>
+        </div> */}
       </div>
-      <div className="navlinks">
-        <hr />
-        <NavLink to="/" exact >Home</NavLink>
-        <NavLink to="/upcoming" exact >Upcoming Launches</NavLink>
-        <NavLink to="/past" exact >Past Launches</NavLink>
-        <NavLink to="/rockets" exact >Rockets</NavLink>
-        <NavLink to="/launchpads" exact >Launchpads</NavLink>
-      </div>
-    </div>
+      <hr />
+      <nav className="navlinks">
+        {/* {activePath()} */}
+        <NavLink className="hover-underline-animation" activeClassName="is-active" to="/upcoming" exact >Upcoming Launches</NavLink>
+        <NavLink className="hover-underline-animation" activeClassName="is-active" to="/past" exact >Past Launches</NavLink>
+        <NavLink className="hover-underline-animation" activeClassName="is-active" to="/rockets" exact >Rockets</NavLink>
+        <NavLink className="hover-underline-animation" activeClassName="is-active" to="/launchpads" exact  >Launchpads</NavLink>
+        <NavLink className="hover-underline-animation" activeClassName="is-active" to="/cores" exact  >Cores</NavLink>
+        <NavLink className="hover-underline-animation" activeClassName="is-active" to="/stats" exact  >Stats</NavLink>
+      </nav>
+    </header>
   )
 }
 

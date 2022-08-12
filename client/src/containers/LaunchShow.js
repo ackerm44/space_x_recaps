@@ -1,43 +1,53 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { pastLaunchesFetchData } from '../actions/pastLaunches'
-import { commentsFetchData } from '../actions/commentsActions'
+import { launchFetchData } from '../actions/launchById'
+import { rocketsFetchData } from '../actions/rockets'
+import { launchpadsFetchData } from '../actions/launchpads'
 import '../css/launchShow.css'
 import LaunchShowDetail from '../components/LaunchShowDetail'
 
 
 class LaunchShow extends Component {
   componentDidMount() {
-    this.props.fetchPastLaunches('https://api.spacexdata.com/v4/launches/past');
-    // this.props.fetchComments('/api/comments');
+    this.props.fetchLaunch(`https://api.spacexdata.com/v4/launches/${this.props.match.params.launchId}`);
+    this.props.fetchRockets('https://api.spacexdata.com/v4/rockets/');
+    this.props.fetchLaunchPads('https://api.spacexdata.com/v4/launchpads/');
+  
   }
 
   render() {
     return (
-      <div>
-        <LaunchShowDetail launch={this.props.launch} comments={this.props.comments}/>
-      </div>
+      <article>
+        <LaunchShowDetail launch={this.props.launch} rocket={this.props.rocket} launchpad={this.props.launchpad}/>
+      </article>
     )
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  let launch = state.pastLaunches.find(launch => launch.flight_number === +ownProps.match.params.launchId)
-  // let comments = state.comments.filter(comment => comment.launch_id === +ownProps.match.params.launchId)
-  if (launch) {
-    // launch = launch.launch
-    return {
-      launch: launch
-      // comments: comments
-    }
-  }
+const determineRocket = (state) => {
+  return state.rockets.find(rocket => rocket.id === state.launch.rocket)
+}
 
+const determineLaunchpad = (state) => {
+  return state.launchpads.find(launchpad => launchpad.id === state.launch.launchpad)
+
+}
+
+const mapStateToProps = state => {
+  return {
+    launch: state.launch,
+    rocket: determineRocket(state),
+    launchpad: determineLaunchpad(state),
+    hasErrored: state.launchHasErrored,
+    isLoading: state.launchIsLoading
+  }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchPastLaunches: (url) => dispatch(pastLaunchesFetchData(url)),
-    // fetchComments: (url) => dispatch(commentsFetchData(url))
+    fetchLaunch: (url) => dispatch(launchFetchData(url)),
+    fetchRockets: (url) => dispatch(rocketsFetchData(url)),
+    fetchLaunchPads: (url) => dispatch(launchpadsFetchData(url))
   }
 }
 
